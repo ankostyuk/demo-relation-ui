@@ -1,0 +1,27 @@
+{
+    "name": "relation-ui",
+    "version": "5.3.0-SNAPSHOT",
+    "description": "relation user interface",
+
+    "author": {
+        "name": "nullpointer",
+        "url": "http://null-pointer.ru/"
+    },
+
+    "repository": {
+    },
+
+    "dependencies": {
+    },
+
+    "devDependencies": {
+        "grunt": "*",
+        "grunt-contrib-clean": "*",
+        "grunt-contrib-jshint": "*",
+        "grunt-contrib-copy": "*",
+        "grunt-bower-task": "*",
+
+        "lodash": "*",
+        "nullpointer-web-app": "git+ssh://git@repo.nkb:nullpointer/web-app.git"
+    }
+}

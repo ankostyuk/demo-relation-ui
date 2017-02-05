@@ -1,0 +1,1275 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: i18n\n"
+"Report-Msgid-Bugs-To: feedback@null-pointer.ru\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: NULLPOINTER <feedback@null-pointer.ru>\n"
+"Language-Team: NULLPOINTER <feedback@null-pointer.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"CLDR_PLURAL_FORMS_FORMAT: one{0}few{1}many{2}other{2}\n"
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Объекты"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Выберите объект"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Сбросить настройки. Вернуть по умолчанию."
+msgid "Сбросить"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Приглушить связи на схеме"
+msgid "Приглушить"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Связь между объектами"
+msgid "Связать"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Описание связи"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Связать выбранные объекты"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Связь между объектами"
+msgid "Редактировать связь"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Сохранить"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Заметка"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Сохранить заметку"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Пользовательский объект на схеме"
+msgid "Добавить объект"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Пользовательский объект на схеме"
+msgid "Редактировать объект"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Изображение в пользовательском объекте на схеме"
+msgid "Изображение"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Удалить изображение"
+msgid "Удалить"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Удалить изображение"
+msgid "Точно удалить?"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Расположение изображения относительно текста"
+msgid "Расположить сверху от текста"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Наличие в отчете изображений с большим разрешением может замедлить отображение и экспорт отчета."
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Так будет выглядеть объект на схеме."
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Вы можете изменить размер изображения мышью за нижний правый угол."
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "После добавления объекта вы сможете изменить цвет фона и добавить связи объекта с другими объектами на схеме."
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Добавить объект"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Сохранить объект"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Связь между объектами"
+msgid "Связать объект"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Связь между объектами"
+msgid "Редактировать связь объекта"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Связать"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgctxt "Связь между объектами"
+msgid "Удалить связь объекта"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Удалить связь"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Открыть в новом отчёте"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Удалить"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "При удалении объекта, все связи объекта с другими объектами будут также удалены."
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Удалить выбранный объект"
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "При удалении объектов, все связи объектов с другими объектами будут также удалены."
+msgstr ""
+
+#: ../src/nkb-app/components/graph-toolbar/views/graph-toolbar.html:1
+msgid "Удалить выбранные объекты"
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Выберите объект или связь между объектами для редактирования заметки, стилей, удаления и иных действий."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Вы можете выбрать несколько объектов или связей, нажав и удерживая клавишу %s."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Вся цепочка связанных объектов в отчёте."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Перетащите мышью цепочку связанных объектов в отчёт."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Перетащите мышью выбранные объекты в отчёт."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "Выберите компанию, физическое лицо, адрес или телефон для отображения связей."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "Для поиска связей между объектами выберите несколько объектов, нажав и удерживая клавишу %s."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "Укажите наименование компании, ОГРН, ИНН, ОКПО или руководителя"
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "фамилию, имя или отчество физического лица"
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "адрес или номер телефона"
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Перетащите мышью объект в отчёт."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Вы можете выбрать несколько объектов, нажав и удерживая клавишу %s."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Отображены основные связи."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Для отображения связей выберите объект."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Отображены цепочки связей."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Для анализа связей выберите объект."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Мы будем помогать вам при работе с приложением, показывая подсказки и советы."
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgid "Отключить данный режим вы можете в"
+msgstr ""
+
+#: ../src/nkb-app/components/hint/views/hint.html:1
+msgctxt "в настройках приложения"
+msgid "настройках"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "AFFILIATE_MEMBER_BOARD_DIRECTORS"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "AFFILIATE_SOLE_EXECUTIVE"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "AFFILIATE_SAME_GROUP"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "AFFILIATE_20_PERCENT"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "RUB"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "EUR"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "USD"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "GBP"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "FZ_44"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "FZ_223"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "WIN"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "NOT_ADMITTED"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Росстат"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "ЕГРЮЛ"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Архив ЕГРЮЛ"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Список аффилированных лиц"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Закупки"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Юридический телефон"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Физический телефон"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Юридический факс"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Физический факс"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "дата последней актуализации данных"
+msgid "последняя актуализация"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "ликвидировано предприятие (организация, компания)"
+msgid "Ликвидировано"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "отец"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "супруга"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "брат"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "сестра"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "сын"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "дочь"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "учредитель юридическое лицо"
+msgid "учредитель"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "учредитель физическое лицо"
+msgid "учредитель"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "головная компания юридического лица"
+msgid "головная компания"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "руководитель юридическое лицо"
+msgid "руководитель"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "руководитель физическое лицо"
+msgid "руководитель"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "аффилированная компания"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "аффилированное физическое лицо"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "предшественник юридического лица"
+msgid "предшественник"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "реестродержатель юридического лица"
+msgid "реестродержатель"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "адрес юридического лица"
+msgid "адрес"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "телефон юридического лица"
+msgid "телефон"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "заказчик закупки юридическое лицо"
+msgid "заказчик"
+msgid_plural ""
+msgstr[0] "заказчик"
+msgstr[1] "заказчик"
+msgstr[2] "заказчик"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "участник закупки юридическое лицо"
+msgid "участие в закупках"
+msgid_plural ""
+msgstr[0] "участие в закупках"
+msgstr[1] "участие в закупках"
+msgstr[2] "участие в закупках"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "участник закупки физическое лицо"
+msgid "участие в закупках"
+msgid_plural ""
+msgstr[0] "участие в закупках"
+msgstr[1] "участие в закупках"
+msgstr[2] "участие в закупках"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "член комиссии закупки"
+msgid "член комиссии"
+msgid_plural ""
+msgstr[0] "член комиссии"
+msgstr[1] "член комиссии"
+msgstr[2] "член комиссии"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "сотрудник юридического лица"
+msgid "Контактное лицо"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "и учредители компании, и учредители физические лица - все вместе"
+msgid "учредитель"
+msgid_plural ""
+msgstr[0] "учредитель"
+msgstr[1] "учредитель"
+msgstr[2] "учредитель"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "и дочерние компании, и зависимые компании, и ассоциированные компании - все вместе"
+msgid "учреждённая компания"
+msgid_plural ""
+msgstr[0] "учреждённая компания"
+msgstr[1] "учреждённая компания"
+msgstr[2] "учреждённая компания"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "и управляющие компании, и руководители физические лица - все вместе"
+msgid "руководитель"
+msgid_plural ""
+msgstr[0] "руководитель"
+msgstr[1] "руководитель"
+msgstr[2] "руководитель"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "и аффилированные компании, и аффилированные физические лица - все вместе"
+msgid "аффилированное лицо"
+msgid_plural ""
+msgstr[0] "аффилированное лицо"
+msgstr[1] "аффилированное лицо"
+msgstr[2] "аффилированное лицо"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "компании, аффилированные с юридическим лицом"
+msgid "зависимая компания"
+msgid_plural ""
+msgstr[0] "зависимая компания"
+msgstr[1] "зависимая компания"
+msgstr[2] "зависимая компания"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgid "головная компания"
+msgid_plural ""
+msgstr[0] "головная компания"
+msgstr[1] "головная компания"
+msgstr[2] "головная компания"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgid "филиал"
+msgid_plural ""
+msgstr[0] "филиал"
+msgstr[1] "филиал"
+msgstr[2] "филиал"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "компании, руководимые юридическим лицом"
+msgid "руководимая компания"
+msgid_plural ""
+msgstr[0] "руководимая компания"
+msgstr[1] "руководимая компания"
+msgstr[2] "руководимая компания"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgid "предшественник"
+msgid_plural ""
+msgstr[0] "предшественник"
+msgstr[1] "предшественник"
+msgstr[2] "предшественник"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgid "правоприемник"
+msgid_plural ""
+msgstr[0] "правоприемник"
+msgstr[1] "правоприемник"
+msgstr[2] "правоприемник"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgid "реестродержатель"
+msgid_plural ""
+msgstr[0] "реестродержатель"
+msgstr[1] "реестродержатель"
+msgstr[2] "реестродержатель"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgid "эмитент"
+msgid_plural ""
+msgstr[0] "эмитент"
+msgstr[1] "эмитент"
+msgstr[2] "эмитент"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "контактная информация (адреса, телефоны)"
+msgid "адрес"
+msgid_plural ""
+msgstr[0] "адрес"
+msgstr[1] "адрес"
+msgstr[2] "адрес"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "контактная информация (адреса, телефоны)"
+msgid "телефон"
+msgid_plural ""
+msgstr[0] "телефон"
+msgstr[1] "телефон"
+msgstr[2] "телефон"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "заказчик закупки юридическое лицо"
+msgid "закупка"
+msgid_plural ""
+msgstr[0] "закупка"
+msgstr[1] "закупка"
+msgstr[2] "закупка"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "сотрудник юридического лица"
+msgid "контактное лицо"
+msgid_plural ""
+msgstr[0] "контактное лицо"
+msgstr[1] "контактное лицо"
+msgstr[2] "контактное лицо"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "компании, учреждённые физическим лицом"
+msgid "учреждённая компания"
+msgid_plural ""
+msgstr[0] "учреждённая компания"
+msgstr[1] "учреждённая компания"
+msgstr[2] "учреждённая компания"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "компании, руководимые физическим лицом"
+msgid "руководимая компания"
+msgid_plural ""
+msgstr[0] "руководимая компания"
+msgstr[1] "руководимая компания"
+msgstr[2] "руководимая компания"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "компании, аффилированные с физическим лицом"
+msgid "зависимая компания"
+msgid_plural ""
+msgstr[0] "зависимая компания"
+msgstr[1] "зависимая компания"
+msgstr[2] "зависимая компания"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "член комиссии закупки"
+msgid "закупочная комиссия"
+msgid_plural ""
+msgstr[0] "закупочная комиссия"
+msgstr[1] "закупочная комиссия"
+msgstr[2] "закупочная комиссия"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgid "организатор закупки"
+msgid_plural ""
+msgstr[0] "организатор закупки"
+msgstr[1] "организатор закупки"
+msgstr[2] "организатор закупки"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgid "компания"
+msgid_plural ""
+msgstr[0] "компания"
+msgstr[1] "компания"
+msgstr[2] "компания"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#, fuzzy
+msgctxt "и участники закупки компании, и участники закупки физические лица - все вместе"
+msgid "участник"
+msgid_plural ""
+msgstr[0] "участник"
+msgstr[1] "участник"
+msgstr[2] "участник"
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "количество объектов в отчёте: [123 в отчёте], [все в отчёте]"
+msgid "в отчёте"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "добавить в отчёт"
+msgid "добавить"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "добавить в отчёт"
+msgid "в отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "добавить в отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "[ещё 1], [ещё 123]"
+msgid "ещё"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "информация о связи двух объектов не актуальна"
+msgid "Информация не актуальна"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Новый отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "копия отчёта"
+msgid "копия"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "Формат экспорта отчёта"
+msgid "Изображение"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "Формат экспорта отчёта"
+msgid "PDF"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgctxt "Формат экспорта отчёта"
+msgid "Word"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/index.html:1
+msgid "Анализ связей"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+#: ../src/nkb-app/index.html:1
+msgid "Подождите"
+msgstr ""
+
+#: ../src/nkb-app/components/l10n/l10n.js:1
+msgid "Текущий сеанс работы с приложением будет завершён"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Для продолжения работы необходимо"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "войти или зарегистрироваться"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Отчёт не найден."
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Владелец отчёта удалил отчёт или запретил доступ к данному отчёту."
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Текущий отчёт не сохранён!"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Создать новый отчёт и не сохранять текущий отчёт?"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Открыть отчёт и не сохранять текущий отчёт?"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Ошибка получения файла"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Приложение не поддерживает мобильные платформы"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Некоторые функции приложения могут работать некорректно."
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Приложение не поддерживает ваш браузер"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Обновите версию браузера или установите более современный браузер."
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Что-то пошло не так"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Закрыть"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Отменить"
+msgstr ""
+
+#: ../src/nkb-app/components/message/views/message.html:1
+msgid "Да"
+msgstr ""
+
+#: ../src/nkb-app/components/node/node.js:1
+msgctxt "лот в закупке"
+msgid "лот"
+msgstr ""
+
+#: ../src/nkb-app/components/node/node.js:1
+msgctxt "лот в закупке"
+msgid "лоты"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "Формат даты: http://momentjs.com/docs/#/displaying/format/"
+msgid "mediumDate"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "ОГРН"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "тыс. руб."
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Закрепить масштаб"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Обновить данные из ЕГРЮЛ"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "обработка заказа (запроса)"
+msgid "обрабатывается..."
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Сведения"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Бенефициары"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Однофамильцы"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Редактировать"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Учредитель"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Головная компания"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Управляющая компания"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Руководитель"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Аффилированная компания"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Аффилированное физическое лицо"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Предшественник"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Реестродержатель"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Адрес"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "Телефон"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "Заказчик закупки юридическое лицо"
+msgid "Заказчик"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "Участник закупки юридическое лицо"
+msgid "Участник"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "Участник закупки физическое лицо"
+msgid "Участник"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "Член комиссии закупки"
+msgid "Член комиссии"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "Сотрудник юридического лица"
+msgid "Контактное лицо"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "с такого-то времени"
+msgid "с"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "от такой-то даты"
+msgid "от"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "руб."
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "доля [%] аффилированного лица в уставном капитале АО"
+msgid "УК"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+msgctxt "доля [%] акций АО у аффилированного лица"
+msgid "акций"
+msgstr ""
+
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+#: ../src/nkb-app/components/node/views/node.html:1
+msgid "ИНН"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgid "Нет новых уведомлений"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgctxt "для юридического лица"
+msgid "Обрабатывается запрос на обновление данных из ЕГРЮЛ для"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgctxt "для физического лица"
+msgid "Обрабатывается запрос на обновление данных из ЕГРЮЛ для"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgctxt "для юридического лица"
+msgid "Обновлены данные из ЕГРЮЛ для"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgctxt "для юридического лица"
+msgid "Нет данных из ЕГРЮЛ для"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgctxt "для физического лица"
+msgid "Обновлены данные из ЕГРЮЛ по учрежденным компаниям для"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgctxt "для физического лица"
+msgid "Нет данных из ЕГРЮЛ по учрежденным компаниям для"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgctxt "для физического лица"
+msgid "Обновлены данные из ЕГРЮЛ по руководимым компаниям для"
+msgstr ""
+
+#: ../src/nkb-app/components/notification/views/notification.html:1
+msgctxt "для физического лица"
+msgid "Нет данных из ЕГРЮЛ по руководимым компаниям для"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Мои отчёты"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Включить режим подсказок"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/rsearch/views/nodes-traces-export.html:1
+#: ../src/nkb-app/components/rsearch/views/nodes-traces-export.html:1
+msgid "Национальное кредитное бюро"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Личный кабинет"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Перейти в старую версию"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Наименование отчёта"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Сохранить отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Переименовать"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Переименовать отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Опубликовать"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Разрешить другим пользователям просматривать отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Ссылка на отчёт:"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Экспортировать"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Экспортировать в"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Масштаб"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Максимальный размер страницы"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Вписать в страницу"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Нарезать постранично"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Для просмотра воспользуйтесь программой для работы с изображениями"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Для корректной работы с документом воспользуйтесь"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Adobe Acrobat Reader"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "MS Office 2007"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "или новее"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Сохранить и экспортировать отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "При удалении отчёта, все данные отчёта будут утерены. Это действие необратимо."
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Удалить отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Создать копию"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Будет создана копия текущего отчёта"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "По возможности, укажите наименование отчёта отличное от наименования текущего отчёта"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Сохранить отчёт и создать копию отчёта"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Создать новый"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Наименование"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Изменён"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgctxt "Формат даты: http://momentjs.com/docs/#/displaying/format/"
+msgid "medium"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Открыт"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Заметка к отчёту"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Опубликовать отчёт"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Открыть"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Новое наименование"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "У вас нет сохранённых отчётов"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Отчётов не найдено"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Вы используете новую версию приложения"
+msgstr ""
+
+#: ../src/nkb-app/components/report-toolbar/views/report-toolbar.html:1
+msgid "Перейти в старую версию приложения"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/nodes-traces-export.html:1
+msgctxt "Экспорт результата проверки"
+msgid "Результат проверки связей"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/nodes-traces-export.html:1
+msgctxt "Экспорт результата проверки"
+msgid "Связаны..."
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "Связи"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "Связи между объектами"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgctxt "Связи между объектами"
+msgid "до уровня:"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgctxt "Цепочки связанных объектов"
+msgid "Любые цепочки"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgctxt "Цепочки связанных объектов"
+msgid "Актуальные связи"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgctxt "Цепочки связанных объектов"
+msgid "Исторические связи"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgctxt "Связи между объектами"
+msgid "учитывать адреса"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgctxt "Связи между объектами"
+msgid "учитывать закупки"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "Найти"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgctxt "Проверки связей"
+msgid "выбрать цепочку"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgctxt "Проверки связей"
+msgid "Экспортировать выбранные цепочки"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "Будут найдены все возможные цепочки связей между объектами до указанного уровня"
+msgstr ""
+
+#: ../src/nkb-app/components/rsearch/views/rsearch.html:1
+msgid "Цепочек связей не найдено"
+msgstr ""

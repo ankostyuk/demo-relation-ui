@@ -1,0 +1,230 @@
+@import './config.less';
+
+[app-report-toolbar] {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    padding: 0;
+    margin: 0;
+}
+
+[app-report-toolbar] .app-toolbar {
+    min-width: 250px;
+}
+
+[app-report-toolbar] .app-toolbar .nav.nav-list > li > a {
+    padding-left: 38px;
+}
+[app-report-toolbar] .app-toolbar .nav.nav-list > li > a > i {
+    margin-left: -30px;
+}
+
+[app-report-toolbar] .app-toolbar .content.dropdown {
+    padding-top: @defaultIndent;
+}
+
+[app-report-toolbar] .app-toolbar .content.report-actions {
+    padding-left: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+[app-report-toolbar] .app-toolbar .report-actions .content {
+    padding-top: @defaultIndent;
+    padding-bottom: 15px;
+    padding-left: 38px;
+    border-bottom: 1px solid @navHoverBackgroundColor;
+}
+
+[app-report-toolbar] .control-group {
+    margin-bottom: 0;
+}
+
+[app-report-toolbar] .nkb-logo-sign {
+    display: block;
+    margin: 2px 1px 0 -1px !important;
+    padding: 0 !important;
+    width: 28px !important;
+    height: 26px !important;
+    background-position: -2px -2px;
+}
+[app-report-toolbar] .nkb-actions label,
+[app-report-toolbar] .nkb-actions input {
+    line-height: 22px;
+}
+
+[app-report-toolbar] .base-bar .report-name {
+    max-width: 200px;
+    padding-left: 4px !important;
+}
+[app-report-toolbar] .base-bar .report-name .changed-marker {
+    height: 10px;
+    line-height: 10px;
+    font-size: 18px;
+}
+
+/**/
+[app-report-toolbar] .report-share textarea {
+    width: 560px;
+    cursor: default;
+    background-color: @defaultBackgroundColor;
+}
+
+/*
+ * app-info
+ *
+ */
+[app-info] {
+    display: none;
+    position: absolute;
+    z-index: 10;
+    left: 2px;
+    top: 35px;
+
+    min-width: 40px;
+
+    padding: 5px 30px 5px 8px;
+
+    -webkit-border-radius: @appInfoBorderRadius;
+    -moz-border-radius: @appInfoBorderRadius;
+    border-radius: @appInfoBorderRadius;
+
+    -webkit-box-shadow: @appInfoBoxShadow;
+    -moz-box-shadow: @appInfoBoxShadow;
+    box-shadow: @appInfoBoxShadow;
+
+    border: @appInfoBorder;
+    background-color: @appInfoBackgroundColor;
+
+    white-space: nowrap;
+}
+[app-info]:before {
+    content: "";
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid @appInfoBorderColor;
+    position: absolute;
+    top: -7px;
+    left: 5px;
+}
+[app-info]:after {
+    content: "";
+    display: inline-block;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid @appInfoBackgroundColor;
+    position: absolute;
+    top: -6px;
+    left: 6px;
+}
+[app-info] .actions {
+    position: absolute;
+    right: 6px;
+    top: 2px;
+}
+
+/*
+ * report actions
+ *
+ */
+[app-report-toolbar] .report-actions .report-share label {
+    margin-bottom: 5px;
+    padding-top: 0;
+}
+
+/*
+ * my-reports
+ *
+ */
+[app-report-toolbar] .my-reports {
+    width: 920px;
+}
+
+/*[app-report-toolbar] .my-reports .no-report {
+    padding: @defaultIndent;
+}*/
+
+[app-report-toolbar] .my-reports .reports {
+    position: relative;
+}
+
+[app-report-toolbar] .my-reports .list-header {
+    padding: 0 @defaultIndent @defaultIndent @defaultIndent;
+}
+[app-report-toolbar] .my-reports .list-header [np-inline-input] input.search-query {
+    width: 0;
+}
+
+[app-report-toolbar] .my-reports .report-list {
+    height: 400px;
+}
+
+[app-report-toolbar] .my-reports .no-report {
+    z-index: 10;
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    padding-top: 180px;
+    text-align: center;
+
+    background: @defaultBackgroundColor;
+}
+[app-report-toolbar] .my-reports .no-report-by-search {
+    z-index: 5;
+    position: absolute;
+
+    left: 0;
+    top: 50px;
+    right: 0;
+    bottom: 0;
+
+    padding-top: 130px;
+    text-align: center;
+
+    background: @defaultBackgroundColor;
+}
+
+[app-report-toolbar] .my-reports .report-list .report-item {
+    width: 880px;
+    padding: @defaultIndent;
+    border-top: @defaultBorder;
+    cursor: default;
+}
+
+[app-report-toolbar] .my-reports .report-list .report-item .report-name {
+    color: @linkHighlightColor;
+    cursor: pointer;
+}
+[app-report-toolbar] .my-reports .report-list .report-item .report-name:hover {
+    color: @linkActiveColor;
+}
+
+[app-report-toolbar] .my-reports .report-list .report-item .actions {
+    visibility: hidden;
+}
+[app-report-toolbar] .my-reports .report-list .report-item.content-open .actions,
+[app-report-toolbar] .my-reports .report-list .report-item:hover .actions {
+    visibility: visible;
+}
+
+[app-report-toolbar] .my-reports .report-list .report-item:hover {
+    background-color: @contentHighlightBackgroundColor;
+}
+
+[app-report-toolbar] .my-reports .report-list .report-item .content {
+    padding: @defaultIndent 0 0 0;
+}
+
+[app-report-toolbar] .my-reports .report-list .report-item .report-rename input {
+    margin: 0 0 0 -4px;
+}
+
+[app-report-toolbar] .my-reports .report-list .report-item .report-share label {
+    margin-bottom: 5px;
+    padding-top: 0;
+}

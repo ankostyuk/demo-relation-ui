@@ -1,0 +1,43 @@
+<script id="notification-view" type="text/template">
+    <div class="app-toolbar covered covered-on-top-bar pull-right" np-expand-content np-expand-content-dropdown np-expand-content-uniq-class="app-notification-expand-content" np-expand-content-adjusted-bottom="content" np-expand-content-adjusted-bottom-offset="-8" np-expand-content-adjusted-bottom-target="window">
+        <ul class="nav nav-pills base-bar">
+            <li><a class="expand-toggle app-notification-expand-content" content="notifications"><i class="icon i-info-sign"></i></a></li>
+        </ul>
+        <div class="app-notification-expand-content content adjusted-bottom dropdown" content-id="notifications">
+            <div class="notification-list">
+                <div class="no-notification muted">${_tr("Нет новых уведомлений")}</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="COMPANY_EGRUL_PENDING-notification" type="text/template">
+    <div class="actions"><a class="close" ng-click="close()">&times;</a></div>
+    ${_trc("Обрабатывается запрос на обновление данных из ЕГРЮЛ для", "для юридического лица")} <a class="strong" ng-click="$emit('do-graph-node-select', node)">{{node.nameshortsort}}</a>
+</script>
+
+<script id="INDIVIDUAL_EGRUL_PENDING-notification" type="text/template">
+    <div class="actions"><a class="close" ng-click="close()">&times;</a></div>
+    ${_trc("Обрабатывается запрос на обновление данных из ЕГРЮЛ для", "для физического лица")} <a class="strong" ng-click="$emit('do-graph-node-select', node)">{{node.name}}</a>
+</script>
+
+<script id="DATA_UPDATE_egrul-notification" type="text/template">
+    <div class="actions"><a class="close" ng-click="close()">&times;</a></div>
+    <span ng-show="type === 'DATA_UPDATE'">${_trc("Обновлены данные из ЕГРЮЛ для", "для юридического лица")}</span>
+    <span ng-show="type === 'NO_DATA'">${_trc("Нет данных из ЕГРЮЛ для", "для юридического лица")}</span>
+    <a class="strong" ng-click="$emit('do-graph-node-select', node)">{{node.nameshortsort}}</a>
+</script>
+
+<script id="DATA_UPDATE_egrul_individual_founder-notification" type="text/template">
+    <div class="actions"><a class="close" ng-click="close()">&times;</a></div>
+    <span ng-show="type === 'DATA_UPDATE'">${_trc("Обновлены данные из ЕГРЮЛ по учрежденным компаниям для", "для физического лица")}</span>
+    <span ng-show="type === 'NO_DATA'">${_trc("Нет данных из ЕГРЮЛ по учрежденным компаниям для", "для физического лица")}</span>
+    <a class="strong" ng-click="$emit('do-graph-node-select', node)">{{node.name}}</a>
+</script>
+
+<script id="DATA_UPDATE_egrul_individual_executive-notification" type="text/template">
+    <div class="actions"><a class="close" ng-click="close()">&times;</a></div>
+    <span ng-show="type === 'DATA_UPDATE'">${_trc("Обновлены данные из ЕГРЮЛ по руководимым компаниям для", "для физического лица")}</span>
+    <span ng-show="type === 'NO_DATA'">${_trc("Нет данных из ЕГРЮЛ по руководимым компаниям для", "для физического лица")}</span>
+    <a class="strong" ng-click="$emit('do-graph-node-select', node)">{{node.name}}</a>
+</script>

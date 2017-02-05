@@ -1,0 +1,114 @@
+@import '../../../../../external_components/nullpointer-commons/nkb/styles/config.less';
+@import '../../../styles/config.less';
+@import '../../../styles/theme-config.less';
+
+/* node component */
+@nodeBaseZIndex:            100;
+@relationBaseZIndex:        110;
+@nodeActiveZIndex:          120;
+@relationActiveZIndex:      130;
+
+@nodeHeaderColor: @contentHighlightColor;
+@nodeCompanyLiquidatedHeaderColor: @invalidColor;
+
+/* simple */
+/**/
+
+/* graph */
+@graphObjectInvisibleBackgroundColor: #fafafa;
+@graphObjectInvisibleBorderColorColor: #dddddd;
+
+/*@graphPaintNormalColor: #d0d0d0;*/
+@graphPaintNormalColor: #808080;
+/*@graphPaintNormalLightColor: #e8e8e8;*/
+@graphPaintNormalLightColor: #999999;
+@graphPaintSelectedColor: #004466;
+@graphPaintHoverColor: #3a87ad;
+
+/* node on graph */
+@nodeGraphPadding: 2px 6px;
+@nodeGraphMinWidth: 18px;
+@nodeGraphMinHeight: 26px;
+@nodeGraphCentralPointOffset: 16px;
+@nodeGraphHeaderMaxWidth: 200px;
+@nodeGraphColor: #000000;
+@nodeGraphBackgroundColor: #ffffff;
+@nodeGraphBorder: 1px solid @graphPaintNormalColor;
+@nodeGraphBorderRadius: @defaultBorderRadius;
+@nodeGraphHeaderFontSize: 9px;
+@nodeGraphFontSize: 9px;
+@nodeGraphLineHeight: 13px;
+@nodeGraphIconColor: #444444;
+@nodeGraphIconFontSize: 20px;
+@nodeGraphIconSpace: 24px;
+
+@nodeGraphSmallMinWidth: 10px;
+@nodeGraphSmallMinHeight: 16px;
+@nodeGraphSmallCentralPointOffset: 11px;
+@nodeGraphSmallIconFontSize: 11px;
+@nodeGraphSmallIconSpace: 14px;
+
+/* object comment */
+@commentBackgroundColor: #fcf8f2;
+@commentBorderColor: #f0ad4e;
+@commentBorderRadius: 2px;
+@commentFontSize: 11px;
+@commentLineHeight: 16px;
+
+/* node on graph states */
+@nodeGraphHoverBorder: 1px solid @graphPaintHoverColor;
+@nodeGraphHoverBoxShadow: 0 0 1px 1px @graphPaintHoverColor;
+@nodeGraphHoverBorderNoShadow: 1px solid @graphPaintHoverColor;
+
+@nodeGraphSelectedBorder: 1px solid @graphPaintSelectedColor;
+@nodeGraphSelectedBoxShadow: 0 0 10px 3px @graphPaintSelectedColor;
+@nodeGraphSelectedBorderNoShadow: 4px solid @graphPaintSelectedColor;
+
+@nodeGraphSelectedHoverBorder: 1px solid @graphPaintHoverColor;
+@nodeGraphSelectedHoverBoxShadow: 0 0 10px 3px @graphPaintHoverColor;
+@nodeGraphSelectedHoverBorderNoShadow: 4px solid @graphPaintHoverColor;
+
+@nodeGraphEdgeSelectedBorder: 1px solid @graphPaintSelectedColor;
+@nodeGraphEdgeSelectedBoxShadow: 0 0 1px 1px @graphPaintSelectedColor;
+@nodeGraphEdgeSelectedBorderNoShadow: 1px solid @graphPaintSelectedColor;
+
+/* by node type */
+@nodeCompanyBackgroundColor: @blue-0_objectTheme_defaultColor;
+
+@nodeIndividualBackgroundColor: @yellow-0_objectTheme_defaultColor;
+
+@nodeAddressBackgroundColor: @green-0_objectTheme_defaultColor;
+
+@nodePhoneBackgroundColor: @green-0_objectTheme_defaultColor;
+
+@nodePurchaseBackgroundColor: @purple-0_objectTheme_defaultColor;
+
+@linkNodeBackgroundColor: @commentBackgroundColor;
+
+/* relation on graph */
+@relationHeaderColor: @contentHighlightColor;
+
+@relationGraphOffset: -5px;
+@relationGraphBackgroundColor: #ffffff;
+@relationGraphBorder: 1px solid @graphPaintNormalLightColor;
+@relationGraphBorderRadius: @defaultBorderRadius;
+@relationGraphHeaderColor: @contentHighlightColor;
+@relationGraphHeaderFontSize: 9px;
+@relationGraphFontSize: 9px;
+@relationGraphLineHeight: 13px;
+
+@relationGraphHoverBorder: 1px solid @graphPaintHoverColor;
+@relationGraphHoverBoxShadow: 0 0 1px 1px @graphPaintHoverColor;
+@relationGraphHoverBorderNoShadow: 1px solid @graphPaintHoverColor;
+
+@relationGraphSelectedBorder: 1px solid @graphPaintSelectedColor;
+@relationGraphSelectedBoxShadow: 0 0 8px 1px @graphPaintSelectedColor;
+@relationGraphSelectedBorderNoShadow: 3px solid @graphPaintSelectedColor;
+
+@relationGraphSelectedHoverBorder: 1px solid @graphPaintHoverColor;
+@relationGraphSelectedHoverBoxShadow: 0 0 8px 1px @graphPaintHoverColor;
+@relationGraphSelectedHoverBorderNoShadow: 3px solid @graphPaintHoverColor;
+
+@relationGraphVertexSelectedBorder: 1px solid @graphPaintSelectedColor;
+@relationGraphVertexSelectedBoxShadow: 0 0 1px 1px @graphPaintSelectedColor;
+@relationGraphVertexSelectedBorderNoShadow: 1px solid @graphPaintSelectedColor;

@@ -1,0 +1,70 @@
+@import './config.less';
+
+[app-graph-layout] {
+    position: fixed;
+    z-index: 10;
+    left: @graphLayoutLeft;
+    top: @graphLayoutTop;
+    right: @graphLayoutRight;
+    bottom: @graphLayoutBottom;
+
+    background-color: @graphLayoutBackgroundColor;
+}
+
+[app-graph-layout] .graph-paper-container {
+    position: absolute;
+    overflow: hidden;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+[app-graph-layout] .graph-object-layout {
+    position: absolute;
+    overflow: scroll;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+[app-graph-layout] .graph-object-container {
+    position: absolute;
+    overflow: visible;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+}
+
+[app-graph-layout] .graph-object-drag {
+    z-index: 999998;
+    position: absolute;
+    overflow: visible;
+    left: 0;
+    top: 0;
+    width: 10px;
+    height: 10px;
+}
+
+[app-graph-layout] .graph-select-area {
+    z-index: 999998;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 0;
+    height: 0;
+
+    background-color: @graphSelectAreaBackgroundColor;
+    opacity: 0.25;
+    filter: alpha(opacity=25);
+}
+[app-graph-layout] .graph-select-area-helper {
+    z-index: 999999;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 1px;
+}

@@ -1,0 +1,265 @@
+@import './config.less';
+
+[app-desktop] {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background-color: @desktopBackgroundColor;
+}
+
+[app-transparent-mask] {
+    position: fixed;
+
+    z-index: 1000001;
+    display: none;
+
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: transparent;
+}
+
+/* app-top-panel */
+[app-top-panel] {
+    position: fixed;
+    z-index: 20;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: @topPanelHeight;
+
+    background-color: @appToolBarBackgroundColor;
+
+    border-bottom: @appPanelBoxShadowBorder;
+
+    -webkit-box-shadow: @appTopPanelBoxShadow;
+    -moz-box-shadow: @appTopPanelBoxShadow;
+    box-shadow: @appTopPanelBoxShadow;
+}
+
+/* app-toolbar */
+.app-toolbar {
+    position: relative;
+
+    padding: 2px;
+
+    background-color: @appToolBarBackgroundColor;
+
+    border: @boxShadowBorder;
+    -webkit-border-radius: @boxBorderRadius;
+    -moz-border-radius: @boxBorderRadius;
+    border-radius: @boxBorderRadius;
+
+    -webkit-box-shadow: @boxShadow;
+    -moz-box-shadow: @boxShadow;
+    box-shadow: @boxShadow;
+
+    float: none;
+}
+
+.app-toolbar.covered {
+    border-color: @appToolBarBackgroundColor;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+}
+.app-toolbar.covered.content-open {
+    border: @boxShadowBorder;
+}
+
+.app-toolbar .nav.nav-list {
+    margin: 0;
+    padding: 0;
+}
+.app-toolbar .nav.nav-list .divider {
+    margin: 7px 0 6px 0;
+}
+.app-toolbar .nav.nav-list > li {
+    margin-bottom: @defaultIndent;
+    overflow: hidden;
+}
+.app-toolbar .nav.nav-list > li.active {
+    background-color: @contentHighlightBackgroundColor;
+}
+.app-toolbar .nav.nav-list > li > a {
+    position: relative;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 3px 15px 0px 15px;
+    cursor: pointer;
+    font-size: @defaultFontSize;
+}
+.app-toolbar .nav.nav-list > li > a > i {
+    position: absolute;
+    margin-top: 2px;
+}
+.app-toolbar .nav.nav-list > .active > a,
+.app-toolbar .nav.nav-list > .active > a:hover,
+.app-toolbar .nav.nav-list > .active > a:focus {
+    color: @linkActiveColor;
+    background-color: @navHoverBackgroundColor;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.app-toolbar .nav.nav-list > .disabled > a,
+.app-toolbar .nav.nav-list > .disabled > a:hover,
+.app-toolbar .nav.nav-list > .disabled > a:focus,
+.app-toolbar .nav.nav-list > li > a.disabled,
+.app-toolbar .nav.nav-list > li > a.disabled:hover,
+.app-toolbar .nav.nav-list > li > a.disabled:focus {
+    background-color: transparent;
+    color: @defaultDisabledColor;
+    cursor: default;
+}
+
+.app-toolbar .nav.nav-pills {
+    margin: 0 0 0 2px;
+}
+.app-toolbar .nav.nav-pills > li > span {
+    display: block;
+    margin: 2px 10px;
+    padding: 6px 0;
+    line-height: 14px;
+}
+.app-toolbar .nav.nav-pills > li > a {
+    padding: 6px 8px;
+    -webkit-border-radius: @boxBorderRadius;
+    -moz-border-radius: @boxBorderRadius;
+    border-radius: @boxBorderRadius;
+    cursor: pointer;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+.app-toolbar .nav.nav-pills.with-badge > li > a {
+    padding-top: 3px;
+    padding-bottom: 2px;
+    padding-right: 6px;
+    margin-right: @defaultIndent;
+}
+.app-toolbar .nav.nav-pills.with-badge > li > a .link {
+    display: inline-block;
+    padding: 4px 0;
+}
+.app-toolbar .nav.nav-pills.with-badge > li > a .badge {
+    margin-left: 6px;
+}
+.app-toolbar .nav.nav-pills.with-badge.badge-right > li > a {
+    position: relative;
+}
+.app-toolbar .nav.nav-pills.with-badge.badge-right > li > a .badge {
+    position: absolute;
+    display: block;
+    top: 6px;
+    right: 6px;
+    margin: 0;
+}
+.app-toolbar .nav.nav-pills.with-badge.badge-right > li > a .badge:empty {
+    display: none;
+}
+.app-toolbar .nav.nav-pills > .active > a,
+.app-toolbar .nav.nav-pills > .active > a:hover,
+.app-toolbar .nav.nav-pills > .active > a:focus {
+    color: @linkActiveColor;
+    background-color: @navHoverBackgroundColor;
+}
+.app-toolbar .nav.nav-pills > .disabled > a,
+.app-toolbar .nav.nav-pills > .disabled > a:hover,
+.app-toolbar .nav.nav-pills > .disabled > a:focus,
+.app-toolbar .nav.nav-pills > li > a.disabled,
+.app-toolbar .nav.nav-pills > li > a.disabled:hover,
+.app-toolbar .nav.nav-pills > li > a.disabled:focus {
+    background-color: transparent;
+    color: @defaultDisabledColor;
+    cursor: default;
+}
+
+.app-toolbar .nav.nav-tabs > li > a {
+    cursor: default;
+}
+.app-toolbar .tabs-left > .nav-tabs > li > a {
+    -webkit-border-radius: @boxBorderRadius 0 0 @boxBorderRadius;
+    -moz-border-radius: @boxBorderRadius 0 0 @boxBorderRadius;
+    border-radius: @boxBorderRadius 0 0 @boxBorderRadius;
+}
+.app-toolbar .nav.nav-tabs > .active > a,
+.app-toolbar .nav.nav-tabs > .active > a:hover,
+.app-toolbar .nav.nav-tabs > .active > a:focus {
+    color: @linkActiveColor;
+}
+
+.app-toolbar .content.dropdown {
+    position: absolute;
+    display: none;
+    z-index: 1;
+    left: -1px;
+    top: 100%;
+    margin-top: -2px;
+
+    padding: 2px 2px 2px 8px;
+
+    font-size: @contentFontSize;
+
+    background-color: @appToolBarBackgroundColor;
+
+    border: @boxShadowBorder;
+    -webkit-border-radius: @boxBorderRadius;
+    -moz-border-radius: @boxBorderRadius;
+    border-radius: @boxBorderRadius;
+
+    -webkit-box-shadow: @boxShadow;
+    -moz-box-shadow: @boxShadow;
+    box-shadow: @boxShadow;
+}
+.app-toolbar .content.dropdown.normal-width {
+    right: -1px;
+}
+.app-toolbar .content.dropdown.content-open {
+    right: auto;
+}
+.app-toolbar:after {
+    content: "";
+    position: absolute;
+    display: none;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 8px;
+    background-color: @appToolBarBackgroundColor;
+}
+.app-toolbar.content-open {
+    padding-bottom: 6px;
+}
+.app-toolbar.content-open:after {
+    display: block;
+}
+.app-toolbar.covered.covered-on-top-bar .content.dropdown {
+    -webkit-border-radius: 0 0 @boxBorderRadius @boxBorderRadius;
+    -moz-border-radius: 0 0 @boxBorderRadius @boxBorderRadius;
+    border-radius: 0 0 @boxBorderRadius @boxBorderRadius;
+
+    -webkit-box-shadow: @coveredBoxShadow;
+    -moz-box-shadow: @coveredBoxShadow;
+    box-shadow: @coveredBoxShadow;
+}
+.app-toolbar.pull-right .content.dropdown {
+    left: auto;
+    right: -1px;
+}
+.app-toolbar.pull-right .content.dropdown.normal-width {
+    left: -1px;
+}
+.app-toolbar.pull-right .content.dropdown.content-open {
+    left: auto;
+}
+
+.app-toolbar hr {
+    margin: @defaultIndent 0;
+}
+
+/* context-popup */
+[np-context-popup] .app-toolbar {
+    font-size: @contentFontSize;
+}

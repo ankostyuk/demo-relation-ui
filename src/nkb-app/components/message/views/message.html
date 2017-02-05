@@ -1,0 +1,46 @@
+<div ng-class="{showing: message.on}"><!-- не используется ng-show из-за неадекватного поведения Opera -->
+    <div class="mask" np-fadein="message.on" np-fadein-duration="50" np-fadein-opacity="0.75"></div>
+    <div class="message-box">
+        <div class="message-content" ng-switch="message.contentKey">
+            <div ng-switch-when="RESPONSE_ERROR.error.access.denied" class="align-center">
+                ${_tr("Для продолжения работы необходимо")}<br><a class="underline" href="/search/">${_tr("войти или зарегистрироваться")}</a>
+            </div>
+            <div ng-switch-when="RESPONSE_ERROR.error.system@report.shared">
+                ${_tr("Отчёт не найден.")}<br>
+                ${_tr("Владелец отчёта удалил отчёт или запретил доступ к данному отчёту.")}
+            </div>
+            <div ng-switch-when="report.modified.new-report">
+                ${_tr("Текущий отчёт не сохранён!")}<br>
+                ${_tr("Создать новый отчёт и не сохранять текущий отчёт?")}
+            </div>
+            <div ng-switch-when="report.modified.open-report">
+                ${_tr("Текущий отчёт не сохранён!")}<br>
+                ${_tr("Открыть отчёт и не сохранять текущий отчёт?")}
+            </div>
+            <div ng-switch-when="file.download.fail" class="align-center">
+                ${_tr("Ошибка получения файла")}
+            </div>
+            <div ng-switch-when="browser.unsupported">
+                <div ng-show="message.data.reject === 'mobile'">
+                    ${_tr("Приложение не поддерживает мобильные платформы")}&nbsp;&nbsp;<i class="icon i-sad"></i><br>
+                    ${_tr("Некоторые функции приложения могут работать некорректно.")}<br>
+                </div>
+                <div ng-show="message.data.reject === 'browser'">
+                    ${_tr("Приложение не поддерживает ваш браузер")}&nbsp;&nbsp;<i class="icon i-sad"></i><br>
+                    ${_tr("Некоторые функции приложения могут работать некорректно.")}<br>
+                    ${_tr("Обновите версию браузера или установите более современный браузер.")}
+                </div>
+            </div>
+            <div ng-switch-default class="align-center">
+                ${_tr("Что-то пошло не так")}&nbsp;&nbsp;<i class="icon i-sad"></i>
+            </div>
+        </div>
+        <div class="message-actions align-right" ng-show="message.type === 'closable'">
+            <button class="btn btn-small flat" ng-click="message.on = false; message.callback()">${_tr("Закрыть")}</button>
+        </div>
+        <div class="message-actions align-right" ng-show="message.type === 'confirm'">
+            <button class="btn btn-small flat" ng-click="message.on = false; message.callback(false)">${_tr("Отменить")}</button>&nbsp;
+            <button class="btn btn-small flat" ng-click="message.on = false; message.callback(true)">${_tr("Да")}</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<!-- nodes-traces-export-view -->
+<!-- lodash template -->
+<script id="nodes-traces-export-view" type="text/template">
+    <!DOCTYPE HTML>
+    <html>
+        <head>
+            <meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+            <style type="text/css">
+                @page {
+                    size: A4;
+                }
+
+                body {
+                    margin: 10pt;
+                    font-size: 14pt;
+                    font-family: Arial;
+                    line-height: 125%;
+                }
+
+                h1 {
+                    font-size: 24pt;
+                }
+
+                h2 {
+                    font-size: 18pt;
+                }
+
+                h3 {
+                    font-size: 14pt;
+                }
+            </style>
+        </head>
+
+        <body>
+            <div class="header">
+                <br>
+                <h1><a href="http://www.creditnet.ru"><img alt='${_tr("Национальное кредитное бюро")}' border="0" width="229" height="49" align="left" src="http://www.creditnet.ru/img/nkb_logo_ru.png"></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${_trc("Результат проверки связей", "Экспорт результата проверки")}</h1>
+                <br>
+                <hr>
+            </div>
+            <div class="content">
+                <br>
+                <div>${_trc("Связаны...", "Экспорт результата проверки")}</div>
+                <br>
+                <% _.each(me.getPairs(), function(pair){ %>
+                    <%
+                    if (!me.isPairTracesChecked(pair)) {
+                        return;
+                    }
+
+                    var firstNode   = pair.node1,
+                        secondNode  = pair.node2;
+
+                    var nodeTracesResult = {
+                        nodes: pair.result.nodes,
+                        traces: me.getPairCheckedTraces(pair),
+                        relations: []
+                    };
+
+                    print(me.nodeTracesView.buildResultHTML([firstNode, secondNode], nodeTracesResult))
+                    %>
+                    <br>
+                    <hr>
+                <% }); %>
+            </div>
+            <div class="footer">
+                <br>
+                <div><i>©&nbsp;2002—2016 ${_tr("Национальное кредитное бюро")}</i></div>
+                <div><i>+7 495 229-67-47</i></div>
+                <div><a href="http://www.creditnet.ru"><i>www.creditnet.ru</i></a></div>
+            </div>
+        </body>
+    </html>
+</script>

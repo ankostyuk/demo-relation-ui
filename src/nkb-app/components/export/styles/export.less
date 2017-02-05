@@ -1,0 +1,31 @@
+@import './config.less';
+
+.internal-export [app-top-panel] {
+    display: none;
+}
+
+.internal-export [app-desktop] {
+    position: absolute;
+
+    overflow: visible;
+    right: auto;
+    bottom: auto;
+
+    background-color: @internalExportBackgroundColor;
+}
+
+.internal-export [app-graph-layout] {
+    position: absolute;
+
+    overflow: hidden;
+    top: 0;
+    right: auto;
+    bottom: auto;
+}
+
+.internal-export [app-graph-layout] .graph-object-layout,
+.internal-export [app-graph-layout] .graph-paper-container {
+    overflow: visible;
+    right: auto;
+    bottom: auto;
+}

@@ -1,0 +1,53 @@
+<div class="actions"><a class="close" ng-click="hint.close()">&times;</a></div>
+<div class="content OBJECT_ACTIONS_START">
+    ${_tr("Выберите объект или связь между объектами для редактирования заметки, стилей, удаления и иных действий.")}<br>
+    ${_.sprintf(_tr("Вы можете выбрать несколько объектов или связей, нажав и удерживая клавишу %s."), '<span class="label">⇧&nbsp;Shift</span>')}
+</div>
+<!-- @Deprecated -->
+<div class="content TRACES_RESULT_ON_REPORT">
+    ${_tr("Вся цепочка связанных объектов в отчёте.")}
+</div>
+<!-- @Deprecated -->
+<div class="content TRACES_RESULT">
+    ${_tr("Перетащите мышью цепочку связанных объектов в отчёт.")}
+</div>
+<!-- @Deprecated -->
+<div class="content RELATIONS_RESULT">
+    ${_tr("Перетащите мышью выбранные объекты в отчёт.")}
+</div>
+<!-- @Deprecated -->
+<div class="content RELATIONS_START">
+    ${_tr("Выберите компанию, физическое лицо, адрес или телефон для отображения связей.")}<br>
+    ${_.sprintf(_tr("Для поиска связей между объектами выберите несколько объектов, нажав и удерживая клавишу %s."), '<span class="label">⇧&nbsp;Shift</span>')}
+</div>
+<!-- @Deprecated -->
+<div class="content SEARCH_RESULT">
+    ${_tr("Перетащите мышью выбранные объекты в отчёт.")}
+</div>
+<!-- @Deprecated -->
+<div class="content SEARCH_INPUT">
+    ${_tr("Укажите наименование компании, ОГРН, ИНН, ОКПО или руководителя")};<br>
+    ${_tr("фамилию, имя или отчество физического лица")}; ${_tr("адрес или номер телефона")}.
+</div>
+<div class="content RSEARCH_NODE_LIST">
+    ${_tr("Перетащите мышью объект в отчёт.")}<br>
+    ${_.sprintf(_tr("Вы можете выбрать несколько объектов, нажав и удерживая клавишу %s."), '<span class="label">⇧&nbsp;Shift</span>')}
+</div>
+<div class="content RSEARCH_NODE_TRACES">
+    ${_tr("Перетащите мышью цепочку связанных объектов в отчёт.")}
+</div>
+<div class="content RSEARCH_NODE_FORM">
+    ${_tr("Перетащите мышью объект в отчёт.")}
+</div>
+<div class="content ADD_NODES_FROM_URL">
+    ${_tr("Отображены основные связи.")}<br>
+    ${_tr("Для отображения связей выберите объект.")}
+</div>
+<div class="content ADD_NODES_FROM_GRID">
+    ${_tr("Отображены цепочки связей.")}<br>
+    ${_tr("Для анализа связей выберите объект.")}
+</div>
+<div class="content START">
+    ${_tr("Мы будем помогать вам при работе с приложением, показывая подсказки и советы.")}<br>
+    ${_tr("Отключить данный режим вы можете в")} <a ng-click="hint.openSettings()">${_trc("настройках", "в настройках приложения")}</a>.
+</div>

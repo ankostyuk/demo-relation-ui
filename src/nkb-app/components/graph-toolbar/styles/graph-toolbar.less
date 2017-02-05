@@ -1,0 +1,264 @@
+@import './config.less';
+
+[app-graph-toolbar] {
+    position: absolute;
+    top: 2px;
+    left: 362px;
+    padding: 0;
+    margin: 0;
+}
+
+[app-graph-toolbar] .control-group {
+    margin-bottom: 0;
+}
+
+[app-graph-toolbar] .app-toolbar {
+    min-width: 260px;
+}
+
+[app-graph-toolbar] .app-toolbar .nav.nav-list > li.no-nav,
+[app-graph-toolbar] .app-toolbar .nav.nav-list > li > a {
+    padding-left: 36px;
+}
+[app-graph-toolbar] .app-toolbar .nav.nav-list > li > a > i,
+[app-graph-toolbar] .app-toolbar .nav.nav-list > li > a > span > i {
+    margin-left: -26px;
+}
+
+[app-graph-toolbar] .app-toolbar .content.dropdown {
+    padding: @defaultIndent 0 0 0;
+}
+
+/* history */
+[app-graph-toolbar] .history-undo {
+    /*margin-left: 20px;*/
+    margin-right: 0;
+    padding-bottom: 5px !important;
+}
+[app-graph-toolbar] .history-redo {
+    padding-bottom: 5px !important;
+}
+
+/* zoom */
+[app-graph-toolbar] .zoom-out {
+    margin-left: 22px;
+    margin-right: 0;
+    padding-bottom: 5px !important;
+}
+[app-graph-toolbar] .zoom-in {
+    padding-bottom: 5px !important;
+}
+
+/* object-actions */
+[app-graph-toolbar] .app-toolbar .object-actions .content {
+    padding-top: 10px;
+    padding-bottom: 15px;
+    padding-left: 36px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+[app-graph-toolbar] .app-toolbar .object-actions .object-title {
+    padding-bottom: @defaultIndent;
+}
+
+/* object-theme toolbar */
+.object-theme {
+    margin-right: 20px;
+    padding-bottom: @defaultIndent;
+    white-space: nowrap;
+}
+
+.object-theme-label {
+    width: 20px;
+    height: 20px;
+
+    padding-left: 2px !important;
+    padding-right: 2px !important;
+
+    line-height: 14px !important;
+
+    font-weight: normal !important;
+
+    border: 1px solid #808080 !important;
+}
+.object-theme-label.default {
+    border: 1px solid #cccccc !important;
+}
+
+.object-theme-label[object-theme="yellow-0"] {
+    background-color: @yellow-0_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="green-0"] {
+    background-color: @green-0_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="blue-0"] {
+    background-color: @blue-0_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="purple-0"] {
+    background-color: @purple-0_objectTheme_defaultColor !important;
+}
+
+.object-theme-label[object-theme="red"] {
+    background-color: @red_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="orange"] {
+    background-color: @orange_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="yellow"] {
+    background-color: @yellow_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="green"] {
+    background-color: @green_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="blue"] {
+    background-color: @blue_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="purple"] {
+    background-color: @purple_objectTheme_defaultColor !important;
+}
+.object-theme-label[object-theme="gray"] {
+    background-color: @gray_objectTheme_defaultColor !important;
+}
+
+.object-theme-label[object-theme="black"] {
+    background-color: @black_objectTheme_defaultColor !important;
+}
+
+/* line-style toolbar */
+.line-style-label {
+    width: 60px;
+    height: 20px;
+
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+.line-style-label:after {
+    position: relative;
+    display: block;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 3px;
+    height: 4px;
+    border-top: 2px none #666666;
+}
+.line-style-label[line-style="solid"]:after {
+    border-top-style: solid;
+}
+.line-style-label[line-style="dashed"]:after {
+    border-top-style: dashed;
+}
+.line-style-label[line-style="dotted"]:after {
+    border-top-style: dotted;
+}
+
+/* line-width toolbar */
+.line-width-label {
+    height: 20px !important;
+    line-height: 14px !important;
+    font-weight: normal !important;
+}
+.line-width-label[line-width="default"] {
+    margin-left: 25px !important;
+}
+.line-width-label[line-width="strong"] {
+    width: 60px;
+
+    padding-left: 4px !important;
+    padding-right: 4px !important;
+}
+.line-width-label[line-width="strong"]:after {
+    position: relative;
+    display: block;
+    content: "";
+    left: 0;
+    right: 0;
+    top: 3px;
+    height: 4px;
+    border-top: 4px solid #666666;
+}
+
+/* opacity toolbar */
+.opacity-label {
+    height: 20px !important;
+    line-height: 14px !important;
+    font-weight: normal !important;
+}
+
+/* user-object */
+.user-object .image-tools .btn {
+    display: inline-block;
+    margin-bottom: 10px;
+}
+.user-object .image-tools .btn .icon {
+    margin: 5px 6px 5px 0;
+}
+.user-object .image-tools .delete-image.confirm .delete-text,
+.user-object .image-tools .delete-image .confirm-delete-text {
+    display: inline;
+}
+.user-object .image-tools .delete-image .delete-text,
+.user-object .image-tools .delete-image.confirm .confirm-delete-text {
+    display: none;
+}
+.user-object .image-tools label {
+    padding-left: 16px;
+}
+.user-object .image-tools label input {
+    margin-left: -16px;
+}
+.user-object .object-preview {
+    position: relative;
+    margin: 20px 0;
+}
+.user-object .object-preview [node-graph-view] {
+    position: relative;
+    display: inline-block;
+}
+/*.user-object .object-preview [node-graph-view] .image-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 2px 0 0;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+.user-object .object-preview [node-graph-view] .image-wrapper img {
+    width: 100%;
+}*/
+.user-object .object-preview [node-graph-view] .image-wrapper .ui-resizable-se {
+    width: 8px;
+    height: 8px;
+    right: 0;
+    bottom: 0;
+}
+.user-object .object-preview [node-graph-view] .image-wrapper:hover,
+.user-object .object-preview [node-graph-view] .image-wrapper.ui-resizable-resizing {
+    border-color: @resizableHoverColor;
+}
+.user-object .object-preview [node-graph-view] .image-wrapper:hover .ui-resizable-se,
+.user-object .object-preview [node-graph-view] .image-wrapper.ui-resizable-resizing .ui-resizable-se {
+    background-color: @resizableHoverColor;
+}
+/*.user-object .object-preview [node-graph-view] .body {
+    min-height: 12px;
+    padding: 4px;
+}
+.user-object .object-preview [node-graph-view] .main {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 0;
+    margin-left: 0;
+    padding: 0 2px;
+}
+.user-object .object-preview [node-graph-view] .main .header {
+    white-space: pre;
+}
+
+.user-object .object-preview [node-graph-view] .image-position-top .image-wrapper,
+.user-object .object-preview [node-graph-view] .image-position-top .main {
+    display: block;
+    vertical-align: baseline;
+}
+.user-object .object-preview [node-graph-view] .image-position-top .image-wrapper {
+    margin: 0 0 4px 0;
+}*/

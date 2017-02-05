@@ -1,0 +1,419 @@
+<!-- node-simple-view -->
+<script id="node-simple-view" type="text/template">
+    <span class="{{node._type}}">
+        <span ng-if="node._type === 'COMPANY'" class="{{node._liquidate ? 'liquidate' : null}}"><i class="icon i-company"></i>{{node.nameshortsort | screen}}</span>
+        <span ng-if="node._type === 'INDIVIDUAL'" class="{{node.subtype}} {{node.gender}}"><i class="icon i-user light"></i>{{node.name | screen}}</span>
+        <span ng-if="node._type === 'ADDRESS'"><i class="icon i-map-marker light"></i>{{node.value | screen}}</span>
+        <span ng-if="node._type === 'PHONE'"><i class="icon i-phone light"></i>{{node.value | screen}}</span>
+        <span ng-if="node._type === 'PURCHASE'"><i class="icon i-justice-2 light"></i>{{node.form}}</span>
+        <span ng-if="node._type === 'USER_OBJECT'" class="text-ellipsis"><img alt="" ng-show="node.image" ng-src="{{node.image}}">{{node.text}}</span>
+    </span>
+</script>
+
+<!-- drag-and-drop-node-view -->
+<script id="drag-and-drop-node-view" type="text/template">
+</script>
+
+<!-- node-graph-view-comment -->
+<script id="node-graph-view-comment" type="text/template">
+    <div class="comment" ng-show="node._comment">
+        <div  class="comment-content">{{node._comment}}</div>
+    </div>
+</script>
+
+<!-- node-graph-view-relations-top -->
+<script id="node-graph-view-relations-top" type="text/template">
+    <li ng-repeat="countData in node.__relationData.relationCounts" ng-show="countData.top" ng-init="relationPluralKey = 'NG_PLURALIZE::RELATION_' + countData.relationType + '-' + countData.direction"><div class="wrapper">
+        <a class="relation" ng-click="nodeHelper.showRelations(node, countData)"><np-pluralize plural="{count: countData.relationCount, when: _tr(countData.pluralKey)}"></np-pluralize></a>
+        <a class="shortcut" ng-click="nodeHelper.showRelations(node, countData, 'ON_REPORT')">{{node | relationOnReportCountWithMessage:countData}}</a>
+        <a class="shortcut" ng-click="nodeHelper.addRelations(node, countData)">{{node | relationOnReportAddCountWithMessage:countData}}</a>
+    </div></li>
+</script>
+
+<!-- node-graph-view-relations-popup -->
+<script id="node-graph-view-relations-popup" type="text/template">
+    <li ng-repeat="countData in node.__relationData.relationCounts" ng-show="!countData.top" ng-init="relationPluralKey = 'NG_PLURALIZE::RELATION_' + countData.relationType + '-' + countData.direction"><div class="wrapper">
+        <a class="relation" ng-click="nodeHelper.showRelations(node, countData)"><np-pluralize plural="{count: countData.relationCount, when: _tr(countData.pluralKey)}"></np-pluralize></a>
+        <a class="shortcut" ng-click="nodeHelper.showRelations(node, countData, 'ON_REPORT')">{{node | relationOnReportCountWithMessage:countData}}</a>
+        <a class="shortcut" ng-click="nodeHelper.addRelations(node, countData)">{{node | relationOnReportAddCountWithMessage:countData}}</a>
+    </div></li>
+</script>
+
+<!-- node-graph-view -->
+<script id="node-graph-view-COMPANY" type="text/template" data-class="COMPANY">
+    <div class="body {{node._liquidate ? 'liquidate' : null}}">
+        <i class="node-icon icon i-company"></i>
+        <div class="main">
+            <div class="header">{{node.nameshortsort | screen | multiline:'line':30}}</div>
+            <div class="header-2">{{
+                (node.founded_dt | isScreen) ?
+                (node.founded_dt | screen) :
+                (node.founded_dt | amDateFormat:'${_trc("mediumDate", "Формат даты: http://momentjs.com/docs/#/displaying/format/")}')
+            }}<span class="liquidate-state"> &rarr; {{node._liquidate.state._since | amDateFormat:'${_trc("mediumDate", "Формат даты: http://momentjs.com/docs/#/displaying/format/")}'}}</span>&nbsp;&nbsp;&nbsp;${_tr("ОГРН")}: {{node.ogrn | screen}}</div>
+        </div>
+        <div class="entry liquidate-state-entry pre"><span class="liquidate-state">{{node._liquidate.state.type | multiline:'line':40}}</span></div>
+        <div class="entry"><a class="relation" ng-show="node.chief_name" ng-click="nodeHelper.showRelations(node, 'COMPANY_EXECUTIVE')"><i class="icon i-user {{node.chief_gender}}"></i> {{node.chief_name | screen}}</a></div>
+        <div class="entry pre"><a class="relation" ng-show="node.addresssort" ng-click="nodeHelper.showRelations(node, 'COMPANY_CONTACTS_ADDRESS')"><i class="icon i-map-marker"></i> {{node.addresssort | screen | multiline:'lineBreak':(node._liquidate ? 40 : 30)}}</a></div>
+        <div class="entry" ng-show="node | isLastSalesVolume"><i class="icon i-coins-2"></i> {{
+            (node | lastSalesVolume | isScreen) ?
+            (node | lastSalesVolume | screen) :
+            (node | lastSalesVolume | number:0)
+        }}&nbsp;${_tr("тыс. руб.")}</div>
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-top') %}
+        </ul>
+    </div>
+    {%= include('node-graph-view-comment') %}
+</script>
+
+<script id="node-graph-view-INDIVIDUAL" type="text/template" data-class="INDIVIDUAL">
+    <div class="body {{node.subtype}} {{node.gender}}">
+        <i class="node-icon icon i-user"></i>
+        <div class="main">
+            <div class="header">{{node.name | screen | multiline:(node.subtype === 'foreign' ? 'middle' : 'firstWord'):0}}</div>
+        </div>
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-top') %}
+        </ul>
+    </div>
+    {%= include('node-graph-view-comment') %}
+</script>
+
+<script id="node-graph-view-ADDRESS" type="text/template" data-class="ADDRESS small">
+    <div class="body">
+        <i class="node-icon icon i-map-marker"></i>
+        <div class="main">
+            <div class="header">{{node.value | screen | multiline:'middle':30}}</div>
+        </div>
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-top') %}
+        </ul>
+    </div>
+    {%= include('node-graph-view-comment') %}
+</script>
+
+<script id="node-graph-view-PHONE" type="text/template" data-class="PHONE small">
+    <div class="body">
+        <i class="node-icon icon i-phone"></i>
+        <div class="main">
+            <div class="header">{{node.value | screen}}</div>
+        </div>
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-top') %}
+        </ul>
+    </div>
+    {%= include('node-graph-view-comment') %}
+</script>
+
+<script id="node-graph-view-PURCHASE" type="text/template" data-class="PURCHASE">
+    <div class="body">
+        <i class="node-icon icon i-justice-2"></i>
+        <div class="main">
+            <div class="header">{{node.form | multiline:'line':30}}</div>
+            <div class="header-2">{{node.date | amDateFormat:'${_trc("mediumDate", "Формат даты: http://momentjs.com/docs/#/displaying/format/")}'}}<span ng-show="node.total_price">&nbsp;&nbsp;&nbsp;&nbsp;{{node.total_price | number:0}} {{_tr(node.currency)}}</span>&nbsp;&nbsp;&nbsp;&nbsp;{{_tr(node.law)}}</div>
+        </div>
+        <div class="entry pre">{{node.name | multiline:'line':30}}</div>
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-top') %}
+        </ul>
+    </div>
+    {%= include('node-graph-view-comment') %}
+</script>
+
+<script id="node-graph-view-LINK" type="text/template" data-class="LINK small">
+    <div class="body">
+        <i class="node-icon icon i-graph-link"></i>
+        <div class="content">{{node._comment}}</div>
+    </div>
+</script>
+
+<script id="node-graph-view-USER_OBJECT" type="text/template" data-class="USER_OBJECT">
+    <div class="body image-position-{{node.imagePosition}}">
+        <div class="image-wrapper" ng-style="{width: node.imageWidth + 'px'}" ng-show="node.image">
+            <img alt="" ng-src="{{node.image}}">
+        </div>
+        <div class="main">
+             <div class="header">{{node.text}}</div>
+        </div>
+    </div>
+</script>
+
+<!-- node-popup-view -->
+<script id="node-popup-view-action-delete" type="text/template">
+    <li><a ng-click="nodeHelper.doAction(node, 'object-delete')"><i class="icon i-trash"></i>${_tr("Удалить")}</a></li>
+</script>
+<script id="node-popup-view-action-hold-zoom" type="text/template">
+    <li class="toggle-hold-zoom"><a ng-click="$emit('object-toggle-hold-zoom', nodeView.toggleHoldZoom())"><i class="icon" ng-class="{'i-check-checked': nodeView.isHoldZoom(), 'i-check-unchecked': !nodeView.isHoldZoom()}"></i>${_tr("Закрепить масштаб")}</a></li>
+</script>
+<script id="node-popup-view-action-egrul-data-update" type="text/template">
+    <li ng-hide="!dataUpdateHelper.canEgrulUpdate(node)" ng-class="{disabled: !dataUpdateHelper.isEgrulUpdateEnabled(node)}"><a title='{{dataUpdateHelper.getEgrulUpdateStatus(node) === "PENDING" ? "${_trc("обрабатывается...", "обработка заказа (запроса)")} " : ""}}{{node | egrulUpdatedDate:"${_trc("mediumDate", "Формат даты: http://momentjs.com/docs/#/displaying/format/")}"}}' ng-click="$emit('do-egrul-data-update', node)"><i class="icon i-save-3"></i>${_tr("Обновить данные из ЕГРЮЛ")}</a></li>
+</script>
+<script id="node-popup-view-actions" type="text/template">
+    <li><a ng-click="nodeHelper.doAction(node, 'object-note')"><i class="icon i-pin"></i>${_tr("Заметка")}</a></li>
+    <li><a ng-click="nodeHelper.doAction(node, 'object-info')"><i class="icon i-info-sign"></i>${_tr("Сведения")}</a></li>
+    <li><a ng-click="nodeHelper.doAction(node, 'object-open-on-new-report')"><i class="icon i-share-alt"></i>${_tr("Открыть в новом отчёте")}</a></li>
+    {%= include('node-popup-view-action-delete') %}
+    {%= include('node-popup-view-action-hold-zoom') %}
+</script>
+
+<script id="node-popup-view" type="text/template">
+    <div ng-if="node._type === 'COMPANY'">
+        <div class="data">{{node | OKVED}}</div>
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-popup') %}
+            <li><div class="wrapper">
+                <a class="relation" ng-click="nodeHelper.showRelations(node, 'COMPANY_BENEFICIARIES')">${_tr("Бенефициары")}</a>
+            </div></li>
+        </ul>
+        <ul class="nav nav-list">
+            {%= include('node-popup-view-action-egrul-data-update') %}
+            {%= include('node-popup-view-actions') %}
+        </ul>
+    </div>
+
+    <div ng-if="node._type === 'INDIVIDUAL'">
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-popup') %}
+            <li ng-hide="node.subtype"><div class="wrapper">
+                <a class="relation" ng-click="nodeHelper.showRelations(node, 'INDIVIDUAL_KINSHIP')">${_tr("Однофамильцы")}</a>
+            </div></li>
+        </ul>
+        <ul class="nav nav-list">
+            {%= include('node-popup-view-action-egrul-data-update') %}
+            {%= include('node-popup-view-actions') %}
+        </ul>
+    </div>
+
+    <div ng-if="node._type === 'ADDRESS'">
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-popup') %}
+        </ul>
+        <ul class="nav nav-list">
+            {%= include('node-popup-view-actions') %}
+        </ul>
+    </div>
+
+    <div ng-if="node._type === 'PHONE'">
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-popup') %}
+        </ul>
+        <ul class="nav nav-list">
+            {%= include('node-popup-view-actions') %}
+        </ul>
+    </div>
+
+    <div ng-if="node._type === 'PURCHASE'">
+        <ul class="nav nav-list relations">
+            {%= include('node-graph-view-relations-popup') %}
+        </ul>
+        <ul class="nav nav-list">
+            {%= include('node-popup-view-actions') %}
+        </ul>
+    </div>
+
+    <div ng-if="node._type === 'LINK'">
+        <ul class="nav nav-list">
+            <li><a ng-click="nodeHelper.doAction(node, 'objects-link-edit')"><i class="icon i-edit-2"></i>${_tr("Редактировать")}</a></li>
+            {%= include('node-popup-view-action-delete') %}
+            {%= include('node-popup-view-action-hold-zoom') %}
+        </ul>
+    </div>
+
+    <div ng-if="node._type === 'USER_OBJECT'">
+        <ul class="nav nav-list">
+            <li><a ng-click="nodeHelper.doAction(node, 'objects-user-object-edit')"><i class="icon i-edit-2"></i>${_tr("Редактировать")}</a></li>
+            {%= include('node-popup-view-action-delete') %}
+        </ul>
+    </div>
+</script>
+
+<!-- relation-simple-view -->
+<script id="relation-simple-view" type="text/template">
+    <span ng-if="relation._type === 'FOUNDER_COMPANY'">${_tr("Учредитель")}<span ng-show="relation.sharePercent"> {{relation.sharePercent | share:2}}%</span></span>
+    <span ng-if="relation._type === 'FOUNDER_INDIVIDUAL'">${_tr("Учредитель")}<span ng-show="relation.sharePercent"> {{relation.sharePercent | share:2}}%</span></span>
+    <span ng-if="relation._type === 'HEAD_COMPANY'">${_tr("Головная компания")}</span>
+    <span ng-if="relation._type === 'EXECUTIVE_COMPANY'">${_tr("Управляющая компания")}</span>
+    <span ng-if="relation._type === 'EXECUTIVE_INDIVIDUAL'">${_tr("Руководитель")}</span>
+    <span ng-if="relation._type === 'AFFILIATED_COMPANY'">${_tr("Аффилированная компания")}</span>
+    <span ng-if="relation._type === 'AFFILIATED_INDIVIDUAL'">${_tr("Аффилированное физическое лицо")}</span>
+    <span ng-if="relation._type === 'PREDECESSOR_COMPANY'">${_tr("Предшественник")}</span>
+    <span ng-if="relation._type === 'REGISTER_HOLDER'">${_tr("Реестродержатель")}</span>
+    <span ng-if="relation._type === 'ADDRESS'">${_tr("Адрес")}</span>
+    <span ng-if="relation._type === 'PHONE'">${_tr("Телефон")}</span>
+    <span ng-if="relation._type === 'CUSTOMER_COMPANY'">${_trc("Заказчик", "Заказчик закупки юридическое лицо")}</span>
+    <span ng-if="relation._type === 'PARTICIPANT_COMPANY'">${_trc("Участник", "Участник закупки юридическое лицо")}</span>
+    <span ng-if="relation._type === 'PARTICIPANT_INDIVIDUAL'">${_trc("Участник", "Участник закупки физическое лицо")}</span>
+    <span ng-if="relation._type === 'COMMISSION_MEMBER'">${_trc("Член комиссии", "Член комиссии закупки")}</span>
+    <span ng-if="relation._type === 'EMPLOYEE'">${_trc("Контактное лицо", "Сотрудник юридического лица")}</span>
+</script>
+
+<!-- relation-graph-view -->
+<script id="relation-graph-view" type="text/template">
+    <div class="body">
+        <div ng-repeat="relationData in relationsInfo.list track by $index">
+            <div ng-repeat="textData in relationData.texts track by $index">
+                <div class="header" ng-show="textData.text"><i class="icon i-history" ng-show="textData.outdated"></i>{{textData.text}}</div>
+                <div class="entry always-show">{{textData.sinceText}}</div>
+                <div class="entry">{{textData.actualText}}</div>
+            </div>
+        </div>
+        <div class="entry always-show inn" ng-show="relationsInfo.innText">{{relationsInfo.innText}}</div>
+    </div>
+    <div class="comment" ng-show="relation._comment">
+        <div  class="comment-content">{{relation._comment}}</div>
+    </div>
+</script>
+
+<!-- relation-label-graph-view -->
+<!-- @Deprecated -->
+<script id="relation-label-graph-view-since" type="text/template">
+    <div class="entry always-show" ng-show="relation._since">${_trc("с", "с такого-то времени")} {{
+        (relation._since | isScreen) ?
+        (relation._since | screen) :
+        (relation._since | amDateFormat:'${_trc("mediumDate", "Формат даты: http://momentjs.com/docs/#/displaying/format/")}')
+    }}</div>
+</script>
+
+<script id="relation-label-graph-view-source" type="text/template">
+    <div class="entry" ng-show="relation._source">{{relation._source | source}}<span ng-show="relation._actual"> ${_trc("от", "от такой-то даты")}&nbsp;{{
+        (relation._actual | isScreen) ?
+        (relation._actual | screen) :
+        (relation._actual | amDateFormat:'${_trc("mediumDate", "Формат даты: http://momentjs.com/docs/#/displaying/format/")}')
+    }}</span></div>
+</script>
+
+<script id="relation-label-graph-view-founder" type="text/template">
+    <div class="header">${_tr("Учредитель")}<span class="normal" ng-show="relation.sharePercent"> {{
+        (relation.sharePercent | isScreen) ?
+        (relation.sharePercent | screen) :
+        (relation.sharePercent | share:2)
+    }}%</span></div>
+    {%= include('relation-label-graph-view-since') %}
+    <div class="entry" ng-show="relation.shareAmount">{{
+        (relation.shareAmount | isScreen) ?
+        (relation.shareAmount | screen) :
+        (relation.shareAmount | number)
+    }}&nbsp;${_tr("руб.")}</div>
+</script>
+
+<script id="relation-label-graph-view-affiliated" type="text/template">
+    <div ng-show="cause.name" ng-repeat="cause in relation.causes track by $index">
+        <div class="header">{{cause.name ? _tr(cause.name) : ''}}</div>
+        <div class="entry always-show" ng-show="cause.since">${_trc("с", "с такого-то времени")} {{cause.since | amDateFormat:'${_trc("mediumDate", "Формат даты: http://momentjs.com/docs/#/displaying/format/")}'}}</div>
+    </div>
+    <div class="header" ng-show="relation.shareCapital || relation.shareStock"><span ng-show="relation.shareCapital">{{relation.shareCapital | share}}% ${_trc("УК", "доля [%] аффилированного лица в уставном капитале АО")} &nbsp; </span><span ng-show="relation.shareStock">{{relation.shareStock | share}}% ${_trc("акций", "доля [%] акций АО у аффилированного лица")}</span></div>
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-participant" type="text/template">
+    <div class="header pre">{{relation | relationPurchaseParticipant}}</div>
+</script>
+
+<script id="relation-label-graph-view-FOUNDER_COMPANY" type="text/template" data-class="FOUNDER_COMPANY">
+    {%= include('relation-label-graph-view-founder') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-FOUNDER_INDIVIDUAL" type="text/template" data-class="FOUNDER_INDIVIDUAL">
+    {%= include('relation-label-graph-view-founder') %}
+    <div class="entry" ng-show="relation.inn">${_tr("ИНН")}:&nbsp;{{relation.inn | screen}}</div>
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-HEAD_COMPANY" type="text/template" data-class="HEAD_COMPANY">
+    <div class="header">${_tr("Головная компания")}</div>
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-EXECUTIVE_COMPANY" type="text/template" data-class="EXECUTIVE_COMPANY">
+    <div class="header">${_tr("Управляющая компания")}</div>
+    {%= include('relation-label-graph-view-since') %}
+    <div class="entry" ng-show="relation.representative">{{relation.representative | screen}}</div>
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-EXECUTIVE_INDIVIDUAL" type="text/template" data-class="EXECUTIVE_INDIVIDUAL">
+    <div class="header">${_tr("Руководитель")}</div>
+    {%= include('relation-label-graph-view-since') %}
+    <div class="entry" ng-show="relation.position">{{relation.position | screen}}</div>
+    <div class="entry" ng-show="relation.inn">${_tr("ИНН")}:&nbsp;{{relation.inn | screen}}</div>
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-AFFILIATED_COMPANY" type="text/template" data-class="AFFILIATED_COMPANY">
+    {%= include('relation-label-graph-view-affiliated') %}
+</script>
+
+<script id="relation-label-graph-view-AFFILIATED_INDIVIDUAL" type="text/template" data-class="AFFILIATED_INDIVIDUAL">
+    {%= include('relation-label-graph-view-affiliated') %}
+</script>
+
+<script id="relation-label-graph-view-PREDECESSOR_COMPANY" type="text/template" data-class="PREDECESSOR_COMPANY">
+    <div class="header">${_tr("Предшественник")}</div>
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-REGISTER_HOLDER" type="text/template" data-class="REGISTER_HOLDER">
+    <div class="header">${_tr("Реестродержатель")}</div>
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-ADDRESS" type="text/template" data-class="ADDRESS" data-parent-class="no-header">
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-PHONE" type="text/template" data-class="PHONE" data-parent-class="no-header">
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-CUSTOMER_COMPANY" type="text/template" data-class="CUSTOMER_COMPANY" data-parent-class="no-header">
+    <div class="header">${_trc("Заказчик", "Заказчик закупки юридическое лицо")}</div>
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-PARTICIPANT_COMPANY" type="text/template" data-class="PARTICIPANT_COMPANY" data-parent-class="no-header">
+    {%= include('relation-label-graph-view-participant') %}
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-PARTICIPANT_INDIVIDUAL" type="text/template" data-class="PARTICIPANT_INDIVIDUAL" data-parent-class="no-header">
+    {%= include('relation-label-graph-view-participant') %}
+    <div class="entry" ng-show="relation.inn">${_tr("ИНН")}:&nbsp;{{relation.inn | screen}}</div>
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-COMMISSION_MEMBER" type="text/template" data-class="COMMISSION_MEMBER" data-parent-class="no-header">
+    <div class="header" ng-bind='relation.role || _trc("Член комиссии", "Член комиссии закупки")'></div>
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-EMPLOYEE" type="text/template" data-class="EMPLOYEE" data-parent-class="no-header">
+    <div class="header">${_trc("Контактное лицо", "Сотрудник юридического лица")}</div>
+    <div class="entry" ng-show="relation.phone">{{relation.phone}}</div>
+    <div class="entry" ng-show="relation.email">{{relation.email}}</div>
+    {%= include('relation-label-graph-view-since') %}
+    {%= include('relation-label-graph-view-source') %}
+</script>
+
+<script id="relation-label-graph-view-LINK" type="text/template" data-class="LINK" data-parent-class="no-header LINK">
+</script>
+
+<script id="relation-popup-view" type="text/template">
+    <div class="toolbar" ng-if="relationView.relationType === 'RELATION'">
+        <a ng-click="$emit('object-toggle-expand', relationView.toggleExpand())"><i class="icon" ng-class="{'i-zoom-out': relationView.isExpanded(), 'i-zoom-in': !relationView.isExpanded()}"></i></a>
+        <a ng-click="nodeHelper.doRelationViewAction(relationView, 'object-note')"><i class="icon i-pin"></i></a>
+    </div>
+    <div class="toolbar" ng-if="relationView.relationType === 'USER_RELATION'">
+        <a ng-click="nodeHelper.doRelationViewAction(relationView, 'user-relation')"><i class="icon i-edit-2"></i></a>
+        <a ng-click="nodeHelper.doRelationViewAction(relationView, 'user-relation-delete')"><i class="icon i-trash"></i></a>
+    </div>
+</script>

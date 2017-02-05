@@ -1,0 +1,206 @@
+<script id="app-toolbar-view" type="text/template">
+    <div class="app-toolbar covered covered-on-top-bar" np-expand-content np-expand-content-dropdown np-expand-content-uniq-class="app-report-toolbar-expand-content">
+        <div app-info></div>
+        <ul class="nav nav-pills base-bar">
+            <li><a class="nkb-logo-sign expand-toggle app-report-toolbar-expand-content" content="nkb-actions"></a></li>
+            <li><a class="expand-toggle app-report-toolbar-expand-content report-name text-ellipsis" content="report-actions" title="{{report.name}}">&nbsp;<span class="changed-marker" ng-show="reportHelper.isReportChanged()">*</span>{{report.name}}</a></li>
+            <li class="pull-right"><a class="expand-toggle app-report-toolbar-expand-content" content="my-reports">${_tr("Мои отчёты")}</a></li>
+        </ul>
+        <div class="app-report-toolbar-expand-content content dropdown normal-width nkb-actions" content-id="nkb-actions">
+            <form class="form-horizontal">
+                <label class="checkbox"><input type="checkbox" ng-model="hint.on">${_tr("Включить режим подсказок")}</label>
+            </form>
+            <hr>
+            <p class="list-item"><a class="underline" ng-class="{disabled: l10n.getLang() === 'ru'}" ng-href="{{(l10n.getLang() === 'ru' ? null : l10n.currentUrlWithLang('ru'))}}">Русский</a>&nbsp;&nbsp;<a class="underline" ng-class="{disabled: l10n.getLang() === 'en'}" ng-href="{{(l10n.getLang() === 'en' ? null : l10n.currentUrlWithLang('en'))}}">English</a></p>
+            <hr>
+            <p class="list-item"><a class="underline" href="http://creditnet.ru" target="_blank">${_tr("Национальное кредитное бюро")}</a></p>
+            <p class="list-item"><a class="underline" href="http://creditnet.ru/stat" target="_blank">${_tr("Личный кабинет")}</a></p>
+            <hr>
+            <p class="list-item"><a class="underline" ng-click="$emit('do-open-old-version')">${_tr("Перейти в старую версию")}</a></p>
+        </div>
+        <form class="app-report-toolbar-expand-content content dropdown normal-width report-actions" content-id="report-actions" np-expand-content np-expand-content-slide np-expand-content-slide-duration="100" np-expand-content-uniq-class="report-actions-expand-content" name="reportForm" novalidate>
+            <ul class="nav nav-list">
+                <li>
+                    <a content="new-report-name" ng-class="{'expand-toggle report-actions-expand-content': reportHelper.isNewReport(), 'action report-save': !reportHelper.isNewReport(), 'disabled': !reportHelper.isNewReport() && !reportHelper.isReportChanged()}">${_tr("Сохранить")}<span class="hotkey pull-right">{{Commons.HTMLUtils.ctrlHotKeySymbol}}S</span></a>
+                    <div class="report-actions-expand-content content new-report-name row" content-id="new-report-name">
+                        <div class="span8 control-group" ng-class="{error: !tmp.report.name}">
+                            <p>${_tr("Наименование отчёта")}:</p>
+                            <p><input class="input-mini span7 no-indent" type="text" ng-model="tmp.report.name" required></p>
+                            <button class="btn btn-mini flat action report-save" ng-disabled="!tmp.report.name">${_tr("Сохранить отчёт")}</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="expand-toggle report-actions-expand-content" content="report-rename" ng-class="{disabled: reportHelper.isNewReport()}"><i class="icon i-edit-2"></i>${_tr("Переименовать")}</a>
+                    <div class="report-actions-expand-content content report-rename row" content-id="report-rename">
+                        <div class="span8 control-group" ng-class="{error: !reportUpdated.name}">
+                            <p><input class="input-mini span7 no-indent" type="text" ng-model="reportUpdated.name" name="name" required></p>
+                            <button class="btn btn-mini flat action report-rename" ng-disabled="!reportUpdated.name || reportUpdated.name === report.name">${_tr("Переименовать отчёт")}</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="expand-toggle report-actions-expand-content" content="report-comment" ng-class="{disabled: reportHelper.isNewReport()}"><i class="icon i-pin" ng-class="{success: report.comment}"></i>${_tr("Заметка")}</a>
+                    <div class="report-actions-expand-content content report-comment row" content-id="report-comment">
+                        <div class="span8">
+                            <p><textarea class="span7 no-indent" rows="1" np-textarea ng-model="reportUpdated.comment" name="comment"></textarea></p>
+                            <button class="btn btn-mini flat action report-comment" ng-disabled="reportUpdated.comment === report.comment || reportUpdated.comment === null">${_tr("Сохранить заметку")}</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="expand-toggle report-actions-expand-content" content="report-share" ng-class="{disabled: reportHelper.isNewReport()}"><i class="icon i-share" ng-class="{success: report.shared}"></i>${_tr("Опубликовать")}</a>
+                    <div class="report-actions-expand-content content report-share row" content-id="report-share">
+                        <div class="span8">
+                            <label class="checkbox inline"><input class="action report-share" type="checkbox" ng-model="report.shared">${_tr("Разрешить другим пользователям просматривать отчёт")}</label>
+                            <div ng-show="report.shared">
+                                <p>${_tr("Ссылка на отчёт:")}</p>
+                                <textarea class="span7 no-indent" rows="2" readonly>{{reportHelper.buildReportShareUrl(report.shareKey)}}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="expand-toggle report-actions-expand-content" content="report-export" ng-class="{disabled: reportHelper.isNewReport()}"><i class="icon i-export"></i>${_tr("Экспортировать")}</a>
+                    <div class="report-actions-expand-content content report-export row" content-id="report-export">
+                        <div class="span8">
+                            <div class="form-horizontal">
+                                <div class="control-group export-format">
+                                    <label for="export-report-format" class="control-label">${_tr("Экспортировать в")}</label>
+                                    <div class="controls">
+                                        <select class="export-format span2" ng-model="reportExportSettings.current.format" ng-options="format.name as format.text for format in reportExportSettings.formats" id="export-report-format"></select>
+                                    </div>
+                                </div>
+
+                                <div class="control-group settings scale" ng-show="reportExportSettings.current.format === 'png'" ng-class="{error: reportForm.exportReportScale.$invalid}">
+                                    <label for="export-report-scale" class="control-label">${_tr("Масштаб")}</label>
+                                    <div class="controls">
+                                        <input type="number" placeholder="100" value="100" min="10" max="400" step="1" class="scale span2" id="export-report-scale" ng-model="reportExportSettings.current.scale" name="exportReportScale" required>
+                                        <label for="export-report-scale" class="help-inline">%, 10&mdash;400</label>
+                                    </div>
+                                </div>
+
+                                <div class="control-group settings max-page-size pdf" ng-show="reportExportSettings.current.format === 'pdf'">
+                                    <label for="export-report-pdf-max-page-size" class="control-label">${_tr("Максимальный размер страницы")}</label>
+                                    <div class="controls">
+                                        <select class="max-page-size span2" ng-model="reportExportSettings.current.pageSize" ng-options="pageSizePDF.name as pageSizePDF.text for pageSizePDF in reportExportSettings.pageSize.PDF" id="export-report-pdf-max-page-size"></select>
+                                    </div>
+                                </div>
+
+                                <div class="control-group settings max-page-size docx" ng-show="reportExportSettings.current.format=='docx'">
+                                    <label for="export-report-docx-max-page-size" class="control-label">${_tr("Максимальный размер страницы")}</label>
+                                    <div class="controls">
+                                        <select class="max-page-size span2" ng-model="reportExportSettings.current.pageSize" ng-options="pageSizeWord.name as pageSizeWord.text for pageSizeWord in reportExportSettings.pageSize.Word" id="export-report-docx-max-page-size" name="exportReportPageSize" required></select>
+                                    </div>
+                                </div>
+
+                                <div class="control-group settings cutDown" ng-show="reportExportSettings.current.format === 'pdf' || reportExportSettings.current.format === 'docx'">
+                                    <div class="controls">
+                                        <label class="radio">
+                                            <input type="radio" ng-value="false" ng-model="reportExportSettings.current.cutDown">${_tr("Вписать в страницу")}
+                                        </label>
+                                        <label class="radio">
+                                            <input type="radio" ng-value="true" ng-model="reportExportSettings.current.cutDown">${_tr("Нарезать постранично")}
+                                        </label>
+                                    </div>
+                                </div>
+                                <br>
+                                <p class="settings soft-info png" ng-show="reportExportSettings.current.format === 'png'">${_tr("Для просмотра воспользуйтесь программой для работы с изображениями")}</p>
+                                <p class="settings soft-info pdf" ng-show="reportExportSettings.current.format === 'pdf'">${_tr("Для корректной работы с документом воспользуйтесь")} <a target="_blank" href="http://get.adobe.com/reader/">${_tr("Adobe Acrobat Reader")}</a></p>
+                                <p class="settings soft-info docx" ng-show="reportExportSettings.current.format === 'docx'">${_tr("Для корректной работы с документом воспользуйтесь")} <a target="_blank" href="http://office.microsoft.com/">${_tr("MS Office 2007")}</a> ${_tr("или новее")}</p>
+                            </div>
+                            <button class="btn btn-mini flat action report-export" type="button" ng-disabled="reportExportSettings.current.format === 'png' && reportForm.exportReportScale.$invalid" ng-click="reportHelper.exportReport()">${_tr("Сохранить и экспортировать отчёт")}</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="expand-toggle report-actions-expand-content" content="report-delete" ng-class="{disabled: reportHelper.isNewReport()}"><i class="icon i-trash"></i>${_tr("Удалить")}</a>
+                    <div class="report-actions-expand-content content report-delete row" content-id="report-delete">
+                        <div class="span8">
+                            <p>${_tr("При удалении отчёта, все данные отчёта будут утерены. Это действие необратимо.")}</p>
+                            <button class="btn btn-mini flat action report-delete">${_tr("Удалить отчёт")}</button>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <a class="expand-toggle report-actions-expand-content" content="report-copy" ng-class="{disabled: reportHelper.isNewReport()}"><i class="icon i-file-copy-black"></i>${_tr("Создать копию")}</a>
+                    <div class="report-actions-expand-content content report-copy row" content-id="report-copy">
+                        <div class="span8 control-group" ng-class="{error: !tmp.report.copyName}">
+                            <p><input class="input-mini span7 no-indent" type="text" ng-model="tmp.report.copyName" name="copyName" required></p>
+                            <p>
+                                ${_tr("Будет создана копия текущего отчёта")}<br>
+                                ${_tr("По возможности, укажите наименование отчёта отличное от наименования текущего отчёта")}
+                            </p>
+                            <button class="btn btn-mini flat action report-copy" ng-disabled="!tmp.report.copyName">${_tr("Сохранить отчёт и создать копию отчёта")}</button>
+                        </div>
+                    </div>
+                </li>
+                <li><a class="action create-new-report"><i class="icon i-file-white"></i>${_tr("Создать новый")}</a></li>
+            </ul>
+        </form>
+        <div class="app-report-toolbar-expand-content content dropdown my-reports" content-id="my-reports">
+            <div class="reports">
+                <div class="row list-header">
+                    <div class="span5 search" np-inline-input np-inline-input-element-min-width="0" np-inline-input-element-max-width="240px" np-inline-input-element-animate-duration="100">
+                        <strong>${_tr("Наименование")}</strong>&nbsp;
+                        <button class="btn btn-mini flat" np-inline-input-show><i class="icon i-search light"></i></button>
+                        <div class="input-append no-indent" np-inline-input-box-element>
+                            <input class="input-mini search-query" type="text" np-inline-input-element ng-model="myReports.searchText">
+                            <button class="btn btn-mini flat btn-close" np-inline-input-hide>&times;</button>
+                        </div>
+                    </div>
+                    <div class="span3">
+                        <div ng-show="myReports.reportsBySearchAvailable"><strong>${_tr("Изменён")}</strong></div>
+                    </div>
+                </div>
+                <div class="report-list" ui-scroll-viewport>
+                    <form class="report-item" ui-scroll="r in myReportDataSource" buffer-size="10" np-expand-content np-expand-content-slide np-expand-content-slide-duration="100" np-expand-content-uniq-class="report-entry-actions-expand-content" data-report-id="{{r.id}}" ng-class="{'opened-report muted': r.id === report.id}" ng-init="rUpdated = {name: r.name, comment: r.comment}" name="rForm" novalidate>
+                        <div class="row">
+                            <div class="span5"><span class="inline" ng-class="{'report-name action report-open': r.id !== report.id}">{{r.name}}</span></div>
+                            <div class="span3">{{r.edited | amDateFormat:'${_trc("medium", "Формат даты: http://momentjs.com/docs/#/displaying/format/")}'}}</div>
+                            <div class="span3 align-right" ng-show="r.id === report.id">${_tr("Открыт")}&nbsp;&nbsp;</div>
+                            <div class="span3 actions" ng-show="r.id !== report.id">
+                                <button class="btn btn-mini flat expand-toggle report-entry-actions-expand-content" content="report-rename" title='${_tr("Переименовать отчёт")}'><i class="icon i-edit-2 light"></i></button>
+                                <button class="btn btn-mini flat expand-toggle report-entry-actions-expand-content" content="report-comment" title='${_tr("Заметка к отчёту")}'><i class="icon i-pin light" ng-class="{success: r.comment}"></i></button>
+                                <button class="btn btn-mini flat expand-toggle report-entry-actions-expand-content" content="report-share" title='${_tr("Опубликовать отчёт")}'><i class="icon i-share light" ng-class="{success: r.shared}"></i></button>
+                                <button class="btn btn-mini flat expand-toggle report-entry-actions-expand-content" content="report-delete" title='${_tr("Удалить отчёт")}'><i class="icon i-trash light"></i></button>
+                                <button class="btn btn-mini flat pull-right action report-open">${_tr("Открыть")}</button>
+                            </div>
+                        </div>
+                        <div class="report-entry-actions-expand-content content report-rename" content-id="report-rename">
+                            <p>${_tr("Новое наименование")}:</p>
+                            <div class="control-group" ng-class="{error: !rUpdated.name}">
+                                <p><input class="input-mini span7 no-indent" type="text" ng-model="rUpdated.name" name="name" required></p>
+                                <button class="btn btn-mini flat action report-rename" ng-disabled="!rUpdated.name || rUpdated.name === r.name">${_tr("Переименовать отчёт")}</button>
+                            </div>
+                        </div>
+                        <div class="report-entry-actions-expand-content content report-comment" content-id="report-comment">
+                            <p>${_tr("Заметка к отчёту")}:</p>
+                            <p><textarea class="span7 no-indent" rows="1" np-textarea ng-model="rUpdated.comment" name="comment"></textarea></p>
+                            <button class="btn btn-mini flat action report-comment" ng-disabled="rUpdated.comment === r.comment">${_tr("Сохранить заметку")}</button>
+                        </div>
+                        <div class="report-entry-actions-expand-content content report-share" content-id="report-share">
+                            <label class="checkbox inline"><input class="action report-share" type="checkbox" ng-model="r.shared">${_tr("Разрешить другим пользователям просматривать отчёт")}</label>
+                            <div ng-show="r.shared">
+                                <p>${_tr("Ссылка на отчёт:")}</p>
+                                <textarea class="span7 no-indent" rows="2" readonly>{{reportHelper.buildReportShareUrl(r.shareKey)}}</textarea>
+                            </div>
+                        </div>
+                        <div class="report-entry-actions-expand-content content report-delete" content-id="report-delete">
+                            <p>${_tr("При удалении отчёта, все данные отчёта будут утерены. Это действие необратимо.")}</p>
+                            <button class="btn btn-mini flat action report-delete">${_tr("Удалить отчёт")}</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="muted no-report" ng-show="!myReports.reportsAvailable">${_tr("У вас нет сохранённых отчётов")}</div>
+                <div class="muted no-report-by-search" ng-show="!myReports.reportsBySearchAvailable">${_tr("Отчётов не найдено")}</div>
+            </div>
+        </div>
+    </div>
+</script>
+
+<script id="app-info-view" type="text/template">
+    <div class="actions"><a class="close" ng-click="appInfo.close(true)">×</a></div>
+    ${_tr("Вы используете новую версию приложения")}<br>
+    <a class="underline" ng-click="$emit('do-open-old-version')">${_tr("Перейти в старую версию приложения")}</a>
+</script>

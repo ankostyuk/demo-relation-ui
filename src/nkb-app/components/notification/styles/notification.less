@@ -1,0 +1,49 @@
+@import './config.less';
+
+[app-notification] {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    padding: 0;
+    margin: 0;
+}
+
+[app-notification] .app-toolbar .content.dropdown {
+    margin-top: -3px;
+    padding: 0;
+    width: 400px;
+    min-height: 40px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+[app-notification] .notification-list .no-notification {
+    position: absolute;
+    z-index: 5;
+    left: 0;
+    top: 0;
+    right: 0;
+    padding-top: @defaultIndent;
+    text-align: center;
+}
+
+[app-notification] .notification {
+    position: relative;
+    z-index: 10;
+    padding: @defaultIndent 40px @defaultIndent @defaultIndent;
+    border-top: @defaultBorder;
+    background-color: @defaultBackgroundColor;
+}
+[app-notification] .notification:first-child {
+    border-top: 0 none;
+}
+
+[app-notification] .notification .actions {
+    position: absolute;
+    display: none;
+    right: 23px;
+    top: 7px;
+}
+[app-notification] .notification:hover .actions {
+    display: block;
+}

@@ -1,0 +1,155 @@
+<div class="app-toolbar covered covered-on-top-bar" np-expand-content np-expand-content-dropdown np-expand-content-uniq-class="app-graph-toolbar-expand-content">
+    <ul class="nav nav-pills base-bar">
+        <li><a class="history-undo" ng-class="{'disabled': !graphHelper.canUndo()}" ng-click="graphHelper.undo()"><i class="icon i-arrow-left"></i></a></li>
+        <li><a class="history-redo" ng-class="{'disabled': !graphHelper.canRedo()}" ng-click="graphHelper.redo()"><i class="icon i-arrow-right"></i></a></li>
+
+        <li><a class="zoom-out" ng-class="{'disabled': graphHelper.isZoomMin()}" ng-click="graphHelper.zoomOut()"><i class="icon i-zoom-out"></i></a></li>
+        <li><a class="zoom-in" ng-class="{'disabled': graphHelper.isZoomMax()}" ng-click="graphHelper.zoomIn()"><i class="icon i-zoom-in-left"></i></a></li>
+
+        <li class="pull-right"><a class="expand-toggle app-graph-toolbar-expand-content" content="object-actions">${_tr("Объекты")}</a></li>
+    </ul>
+    <div class="app-graph-toolbar-expand-content content dropdown object-actions" ng-class="{'normal-width': !graphHelper.changeThemeEnabled() && !graphHelper.changeLineStyleEnabled()}" content-id="object-actions" np-expand-content np-expand-content-slide np-expand-content-slide-duration="100" np-expand-content-uniq-class="object-actions-expand-content" name="nodeActionsForm" novalidate>
+        <div class="object-title">
+            <!--<div class="align-center muted" ng-hide="graphHelper.isGraphObjectSelected()">${_tr("Выберите объект")}</div>-->
+        </div>
+        <ul class="nav nav-list">
+            <li class="no-nav object-theme" ng-show="graphHelper.changeThemeEnabled()">
+                <button class="btn btn-mini flat btn-close object-theme-label default" object-theme="default" title="${_trc("Сбросить", "Сбросить настройки. Вернуть по умолчанию.")}">×</button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="red"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="orange"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="yellow"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="green"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="blue"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="purple"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="gray"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="yellow-0"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="green-0"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="blue-0"></button>
+                <button class="btn btn-mini flat object-theme-label" object-theme="purple-0"></button>
+                <span ng-show="graphHelper.changeLineStyleEnabled()">
+                    <button class="btn btn-mini flat object-theme-label" object-theme="black"></button>
+                </span>
+            </li>
+            <li class="no-nav object-theme" ng-show="graphHelper.changeLineStyleEnabled()">
+                <button class="btn btn-mini flat line-style-label" line-style="solid"></button>
+                <button class="btn btn-mini flat line-style-label" line-style="dashed"></button>
+                <button class="btn btn-mini flat line-style-label" line-style="dotted"></button>
+                <div class="btn-group">
+                    <button class="btn btn-mini flat btn-close line-width-label" line-width="default" title="${_trc("Сбросить", "Сбросить настройки. Вернуть по умолчанию.")}">×</button>
+                    <button class="btn btn-mini flat line-width-label" line-width="strong"></button>
+                </div>
+                <div class="btn-group">
+                    <button class="btn btn-mini flat btn-close opacity-label" opacity-name="default" title="${_trc("Сбросить", "Сбросить настройки. Вернуть по умолчанию.")}">×</button>
+                    <button class="btn btn-mini flat opacity-label" opacity-name="muted">${_trc("Приглушить", "Приглушить связи на схеме")}</button>
+                </div>
+            </li>
+            <li ng-show="graphHelper.objectLinkEnabled()">
+                <a class="expand-toggle object-actions-expand-content" content="objects-link"><i class="icon i-graph-link-add"></i>${_trc("Связать", "Связь между объектами")}</a>
+                <div class="object-actions-expand-content content row" content-id="objects-link">
+                    <div class="span8 control-group">
+                        <p ng-repeat="node in actions.nodes" node-simple-view="node"></p>
+                        <p>${_tr("Описание связи")}:</p>
+                        <p><textarea class="span7 no-indent" rows="1" np-textarea ng-model="actions.linkText"></textarea></p>
+                        <button class="btn btn-mini flat" ng-disabled="!actions.linkText" ng-click="actions.linkNodes()">${_tr("Связать выбранные объекты")}</button>
+                    </div>
+                </div>
+            </li>
+            <li ng-show="graphHelper.objectLinkEditEnabled()">
+                <a class="expand-toggle object-actions-expand-content" content="objects-link-edit"><i class="icon i-graph-link"></i>${_trc("Редактировать связь", "Связь между объектами")}</a>
+                <div class="object-actions-expand-content content row" content-id="objects-link-edit">
+                    <div class="span8 control-group" ng-class="{error: !actions.objectUpdated._comment}">
+                        <p>${_tr("Описание связи")}:</p>
+                        <p><textarea class="span7 no-indent" rows="1" np-textarea ng-model="actions.objectUpdated._comment" required></textarea></p>
+                        <button class="btn btn-mini flat" ng-disabled="!actions.objectUpdated._comment || actions.objectUpdated._comment === actions.object._comment" ng-click="actions.saveObjectProperty('_comment')">${_tr("Сохранить")}</button>
+                    </div>
+                </div>
+            </li>
+            <li ng-show="graphHelper.objectCommentEnabled()">
+                <a class="expand-toggle object-actions-expand-content" content="object-note"><i class="icon i-pin"></i>${_tr("Заметка")}</a>
+                <div class="object-actions-expand-content content row" content-id="object-note">
+                    <div class="span8">
+                        <p><textarea class="span7 no-indent" rows="1" np-textarea ng-model="actions.objectUpdated._comment"></textarea></p>
+                        <button class="btn btn-mini flat" ng-disabled="actions.objectUpdated._comment === actions.object._comment" ng-click="actions.saveObjectProperty('_comment')">${_tr("Сохранить заметку")}</button>
+                    </div>
+                </div>
+            </li>
+            <li>
+                <a class="expand-toggle object-actions-expand-content" content="user-object" ng-show="actions.userObject.mode === 'CREATE'"><i class="icon i-plus"></i>${_trc("Добавить объект", "Пользовательский объект на схеме")}</a>
+                <a class="expand-toggle object-actions-expand-content" content="user-object" ng-hide="actions.userObject.mode === 'CREATE'"><i class="icon i-edit-2"></i>${_trc("Редактировать объект", "Пользовательский объект на схеме")}</a>
+                <div class="object-actions-expand-content content row user-object" content-id="user-object">
+                    <div class="span8 control-group">
+                        <div class="row">
+                            <div class="span4 control-group"  ng-class="{error: !actions.userObject.node.text}">
+                                <p><textarea class="span4 no-indent" rows="1" np-textarea ng-model="actions.userObject.node.text"></textarea></p>
+                            </div>
+                            <div class="span4 image-tools">
+                                <form>
+                                    <span class="btn btn-mini flat add-image attach-file-wrapper"><i class="icon i-image"></i>${_trc("Изображение", "Изображение в пользовательском объекте на схеме")}<input type="file" name="file" accept="image/*"></span>
+                                    <button class="btn btn-mini flat delete-image" ng-class="{'confirm': actions.userObject.confirmDeleteImage}" ng-disabled="!actions.userObject.node.image" ng-click="actions.userObject.deleteImage()"><i class="icon i-delete"></i><span class="delete-text">${_trc("Удалить", "Удалить изображение")}</span><span class="confirm-delete-text">${_trc("Точно удалить?", "Удалить изображение")}</span></button>
+                                </form>
+                                <label class="checkbox">
+                                    <input type="checkbox" ng-model="actions.userObject.node.imagePosition" ng-true-value="'top'" ng-false-value="'left'" ng-disabled="!actions.userObject.node.image"> ${_trc("Расположить сверху от текста", "Расположение изображения относительно текста")}
+                                </label>
+                                <p class="right-padding-1 muted">${_tr("Наличие в отчете изображений с большим разрешением может замедлить отображение и экспорт отчета.")}</p>
+                            </div>
+                        </div>
+                        <div class="object-preview">
+                            <div class="USER_OBJECT" node-graph-view="">
+                                <div class="body image-position-{{actions.userObject.node.imagePosition}}">
+                                    <div class="image-wrapper" ng-show="actions.userObject.node.image">
+                                        <img alt="" src="">
+                                    </div>
+                                    <div class="main" ng-show="actions.userObject.node.text">
+                                         <div class="header">{{actions.userObject.node.text}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="right-padding-1">
+                            ${_tr("Так будет выглядеть объект на схеме.")}
+                            <br>${_tr("Вы можете изменить размер изображения мышью за нижний правый угол.")}
+                            <span ng-show="actions.userObject.mode === 'CREATE'"><br>${_tr("После добавления объекта вы сможете изменить цвет фона и добавить связи объекта с другими объектами на схеме.")}</span>
+                        </p>
+                        <button class="btn btn-mini flat" ng-show="actions.userObject.mode === 'CREATE'" ng-disabled="!actions.userObject.node.text" ng-click="actions.userObject.create()">${_tr("Добавить объект")}</button>
+                        <button class="btn btn-mini flat" ng-hide="actions.userObject.mode === 'CREATE'" ng-disabled="!actions.userObject.node.text" ng-click="actions.userObject.update()">${_tr("Сохранить объект")}</button>
+                    </div>
+                </div>
+            </li>
+            <li ng-show="graphHelper.userRelationEnabled()">
+                <a class="expand-toggle object-actions-expand-content" content="user-relation" ng-show="actions.userRelation.mode === 'CREATE'"><i class="icon i-graph-link-add"></i>${_trc("Связать объект", "Связь между объектами")}</a>
+                <a class="expand-toggle object-actions-expand-content" content="user-relation" ng-hide="actions.userRelation.mode === 'CREATE'"><i class="icon i-graph-link"></i>${_trc("Редактировать связь объекта", "Связь между объектами")}</a>
+                <div class="object-actions-expand-content content row" content-id="user-relation">
+                    <div class="span8 control-group">
+                        <p node-simple-view="actions.userRelation.srcNode"></p>
+                        <p><textarea class="span7 no-indent" rows="1" np-textarea ng-model="actions.userRelation.relation.text"></textarea></p>
+                        <p node-simple-view="actions.userRelation.dstNode"></p>
+                        <button class="btn btn-mini flat" ng-show="actions.userRelation.mode === 'CREATE'" ng-disabled="!actions.userRelation.relation.text" ng-click="actions.userRelation.create()">${_tr("Связать")}</button>
+                        <button class="btn btn-mini flat" ng-hide="actions.userRelation.mode === 'CREATE'" ng-disabled="!actions.userRelation.relation.text" ng-click="actions.userRelation.update()">${_tr("Сохранить")}</button>
+                    </div>
+                </div>
+            </li>
+            <li ng-show="graphHelper.userRelationDeleteEnabled()">
+                <a class="expand-toggle object-actions-expand-content" content="user-relation-delete"><i class="icon i-graph-link-delete"></i>${_trc("Удалить связь объекта", "Связь между объектами")}</a>
+                <div class="object-actions-expand-content content row" content-id="user-relation-delete">
+                    <div class="span8">
+                        <button class="btn btn-mini flat action object-delete" ng-click="actions.userRelation.delete()">${_tr("Удалить связь")}</button>
+                    </div>
+                </div>
+            </li>
+            <li ng-show="graphHelper.objectNewOpenEnabled()"><a ng-click="$emit('object-open-on-new-report', actions.object)"><i class="icon i-share-alt"></i>${_tr("Открыть в новом отчёте")}</a></li>
+            <li ng-show="graphHelper.objectDeleteEnabled()">
+                <a class="expand-toggle object-actions-expand-content" content="object-delete"><i class="icon i-trash"></i>${_tr("Удалить")}</a>
+                <div class="object-actions-expand-content content row" content-id="object-delete">
+                    <div class="span8" ng-show="actions.object">
+                        <p>${_tr("При удалении объекта, все связи объекта с другими объектами будут также удалены.")}</p>
+                        <button class="btn btn-mini flat action object-delete" ng-click="actions.deleteObjects()">${_tr("Удалить выбранный объект")}</button>
+                    </div>
+                    <div class="span8" ng-show="actions.objects">
+                        <p>${_tr("При удалении объектов, все связи объектов с другими объектами будут также удалены.")}</p>
+                        <button class="btn btn-mini flat action object-delete" ng-click="actions.deleteObjects()">${_tr("Удалить выбранные объекты")}</button>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

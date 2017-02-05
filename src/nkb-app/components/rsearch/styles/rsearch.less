@@ -1,0 +1,384 @@
+@import './config.less';
+@import '../../../../../external_components/nullpointer-rsearch/nkb-app/styles/rsearch.less';
+
+[app-rsearch] {
+    position: absolute;
+    top: 2px;
+    right: 60px;
+    padding: 0;
+    margin: 0;
+}
+
+[app-rsearch] .result-drag__start {
+    -webkit-animation:  @animateFadeout;
+       -moz-animation:  @animateFadeout;
+        -ms-animation:  @animateFadeout;
+         -o-animation:  @animateFadeout;
+            animation:  @animateFadeout;
+
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+[app-rsearch] .result-drag__stop {
+    -webkit-animation:  @animateFadein;
+       -moz-animation:  @animateFadein;
+        -ms-animation:  @animateFadein;
+         -o-animation:  @animateFadein;
+            animation:  @animateFadein;
+}
+
+[app-rsearch] .app-rsearch-toolbar-expand-content {
+    cursor: default;
+}
+
+/* np-rsearch-content */
+[app-rsearch] .np-rsearch-content a {
+    color: @linkColor;
+}
+[app-rsearch] .np-rsearch-content a.underline {
+    border-bottom-color: @linkUnderlineColor;
+}
+[app-rsearch] .np-rsearch-content a:hover,
+[app-rsearch] .np-rsearch-content a:focus,
+[app-rsearch] .np-rsearch-content a:active {
+    color: @linkActiveColor;
+}
+[app-rsearch] .np-rsearch-content a.underline:hover,
+[app-rsearch] .np-rsearch-content a.underline:focus,
+[app-rsearch] .np-rsearch-content a.underline:active {
+    border-bottom-color: @linkActiveUnderlineColor;
+}
+[app-rsearch] .np-rsearch-content a.disabled,
+[app-rsearch] .np-rsearch-content a.disabled:hover,
+[app-rsearch] .np-rsearch-content a.disabled:focus,
+[app-rsearch] .np-rsearch-content a.disabled:active {
+    color: @defaultDisabledColor;
+}
+
+[app-rsearch] .np-rsearch-content .icon {
+    width: auto;
+    height: auto;
+    line-height: 1;
+    font-size: @fontSize;
+}
+
+/* rsearch-relations-bar */
+[app-rsearch] .rsearch-relations-bar {
+    padding: 4px 4px 4px 4px;
+}
+[app-rsearch] .rsearch-relations-bar.content-open {
+    padding-bottom: 8px;
+}
+
+[app-rsearch] .rsearch-relations-bar .nav.nav-pills > li:first-child {
+    margin-right: 25px;
+}
+[app-rsearch] .rsearch-relations-bar .nav.nav-pills > li > a {
+    margin: 0;
+}
+
+[app-rsearch] .rsearch-relations-bar .content.dropdown {
+    right: -59px;
+}
+
+/* nodes-relations-empty */
+[app-rsearch] .content.dropdown.nodes-relations-empty {
+    left: -1px;
+    padding: 10px 15px;
+}
+
+/* nodes-traces */
+[app-rsearch] .content.dropdown.nodes-traces {
+    width: 1200px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+[app-rsearch] .nodes-traces .nodes-traces-content {
+    padding: 30px 10px 20px 100px;
+    font-size: @fontSize;
+}
+[app-rsearch] .nodes-traces .nodes-traces-content > .tools,
+[app-rsearch] .nodes-traces .result-tools {
+    width: 1110px;
+    margin-bottom: 40px;
+}
+[app-rsearch] .nodes-traces .nodes-traces-header {
+    font-size: 120%;
+    padding-top: 1px;
+}
+[app-rsearch] .nodes-traces .nodes-traces-content > .tools label {
+    font-size: @fontSize;
+}
+[app-rsearch] .nodes-traces .nodes-traces-content > .tools label.checkbox {
+    margin-top: -3px;
+    margin-left: 10px;
+}
+[app-rsearch] .nodes-traces .nodes-traces-content > .tools select.depth {
+    width: 60px;
+    margin-left: 10px;
+}
+[app-rsearch] .nodes-traces .nodes-traces-content > .tools select.history {
+    width: 220px;
+    margin-right: 10px;
+}
+[app-rsearch] .nodes-traces .nodes-traces-content > .tools button {
+    margin-top: -3px;
+    border-color: @searchInputBackgroundColor;
+}
+[app-rsearch] .nodes-traces .filters-message {
+    color: @defaultDisabledColor;
+}
+[app-rsearch] .nodes-traces .nodes-pairs {
+    margin-left: 40px;
+    width: 350px;
+}
+[app-rsearch] .nodes-traces .nodes-pair {
+    display: block;
+    margin-bottom: 20px;
+}
+[app-rsearch] .nodes-traces .nodes-pair [np-rsearch-node-simple].node1 {
+    margin-bottom: 5px;
+}
+
+[app-rsearch] .nodes-traces [np-rsearch-node-traces] {
+    padding-top: 0;
+}
+[app-rsearch] .nodes-traces [np-rsearch-node-traces] .filters,
+[app-rsearch] .nodes-traces [np-rsearch-node-traces] .filters-message.hint {
+    display: none;
+}
+[app-rsearch] .nodes-traces [np-rsearch-node-traces] .trace-part a.action {
+    color: @nodeHighlightColor;
+    cursor: default;
+}
+
+[app-rsearch] .nodes-traces .result-tools {
+    position: relative;
+}
+[app-rsearch] .nodes-traces .result-tools .trace-check {
+    position: absolute;
+    z-index: 10;
+    top: 71px;
+    left: 20px;
+    padding: 2px 10px 35px 3px;
+}
+[app-rsearch] .nodes-traces .result-tools .trace-check label {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: @fontSize;
+}
+[app-rsearch] .nodes-traces .result-tools .btn {
+    background-color: @checkedTraceColor;
+}
+
+
+/* rsearch-result-empty */
+[app-rsearch] .content.dropdown.rsearch-result-empty {
+    left: -1px;
+    padding: 10px 15px;
+}
+
+/* np-rsearch-input */
+[app-rsearch] [np-rsearch-input] {
+    padding-top: 0;
+}
+[app-rsearch] [np-rsearch-input] .input-append {
+    padding: 1px;
+}
+[app-rsearch] [np-rsearch-input] input {
+    width: 300px;
+    padding: 2px 4px;
+    height: 18px;
+    line-height: 18px;
+    font-size: @fontSize;
+}
+[app-rsearch] [np-rsearch-input] .search-btn {
+    width: 50px;
+    padding: 1px 0px;
+    line-height: 20px;
+    font-size: @fontSize;
+}
+[app-rsearch] [np-rsearch-input].active .search-btn {
+    color: @linkActiveColor;
+    background-color: @navHoverBackgroundColor;
+}
+[app-rsearch] [np-rsearch-input] .search-btn .icon {
+    vertical-align: -2px;
+}
+[app-rsearch] [np-rsearch-input] .search-btn span {
+    display: none;
+}
+
+/* rsearch-result */
+[app-rsearch] .content.dropdown.rsearch-result {
+    width: 1100px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+[app-rsearch] [np-rsearch-navigation] {
+    padding: 30px 20px 20px 80px;
+    font-size: @fontSize;
+}
+[app-rsearch] [np-rsearch-navigation] .mask .message-box {
+    top: 120px;
+}
+[app-rsearch] [np-rsearch-navigation] .icon.small {
+    font-size: 85%;
+}
+[app-rsearch] [np-rsearch-navigation] .icon.large {
+    padding-right: 2px;
+    font-size: 150%;
+    vertical-align: -5px;
+}
+[app-rsearch] [np-rsearch-navigation] .icon.big {
+    padding-right: 5px;
+    font-size: 200%;
+    vertical-align: -6px;
+}
+[app-rsearch] [np-rsearch-navigation] .product-link .link-icon .icon {
+    font-size: 21px;
+}
+[app-rsearch] [np-rsearch-node-history-info] .history-labels .icon {
+  vertical-align: -5px;
+  font-size: 150%;
+}
+
+[app-rsearch] [np-rsearch-navigation] [np-rsearch-node-relations] .action.relations-product {
+    display: none !important;
+}
+
+/* np-rsearch-node-plain */
+[app-rsearch] [np-rsearch-node-plain].selected > div,
+[app-rsearch] .node-list-item:not(.INDIVIDUAL_IDENTITY) [np-rsearch-node-plain]:not(.on-report):hover > div,
+[drag-and-drop-node-view] [np-rsearch-node-info] {
+    background-color: @nodeHoverBackgroundColor;
+}
+/*[app-rsearch] [np-rsearch-node-plain]:not(.on-report):hover > div {
+    cursor: move;
+}*/
+
+/* np-rsearch-node-list */
+[app-rsearch] [np-rsearch-node-list] .node-list-item.on-report .item-info .item-info-entry.node-status {
+    display: block;
+}
+
+/* np-rsearch-node-traces */
+[app-rsearch] [np-rsearch-node-traces] .trace-result .traces {
+    margin-top: 20px;
+    cursor: default;
+}
+[app-rsearch] [np-rsearch-node-traces] .trace-pager .page-prev,
+[app-rsearch] [np-rsearch-node-traces] .trace-pager .page-next,
+[app-rsearch] [np-rsearch-node-traces] .trace-pager .page-info {
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+[app-rsearch] [np-rsearch-node-traces] .trace-result .traces:not(.on-report):hover,
+[app-rsearch] [np-rsearch-node-traces] .trace-result .traces:not(.on-report):hover .relation [np-rsearch-node-relations-info] {
+    background-color: @checkedTraceColor;
+    cursor: move;
+}
+[app-rsearch] [np-rsearch-node-traces] .trace-result .traces:not(.on-report):hover .node a {
+    cursor: move !important;
+}
+[app-rsearch] [np-rsearch-node-traces] .trace-result .traces:not(.on-report):hover .relation.parents:after {
+    border-bottom-color: @checkedTraceColor;
+}
+[app-rsearch] [np-rsearch-node-traces] .trace-result .traces:not(.on-report):hover .relation.children:after {
+    border-top-color: @checkedTraceColor;
+}
+[app-rsearch] [np-rsearch-node-traces] .on-report .trace-part-info .trace-part-info-entry.node-status {
+    display: block;
+}
+
+[app-rsearch] .nodes-traces.current-trace-checked .result-tools .trace-check,
+[app-rsearch] .nodes-traces.current-trace-checked [np-rsearch-node-traces] .trace-result .traces,
+[app-rsearch] .nodes-traces.current-trace-checked [np-rsearch-node-traces] .trace-result .traces .relation [np-rsearch-node-relations-info] {
+    background-color: @checkedTraceColor;
+}
+[app-rsearch] .nodes-traces.current-trace-checked [np-rsearch-node-traces] .trace-result .traces .relation.parents:after {
+    border-bottom-color: @checkedTraceColor;
+}
+[app-rsearch] .nodes-traces.current-trace-checked [np-rsearch-node-traces] .trace-result .traces .relation.children:after {
+    border-top-color: @checkedTraceColor;
+}
+
+
+/* np-rsearch-node-form */
+[app-rsearch] [np-rsearch-node-form] [np-rsearch-node-info] {
+    margin-left: -8px;
+    padding-left: 8px;
+}
+[app-rsearch] [np-rsearch-node-form] > div:not(.INDIVIDUAL_IDENTITY) [np-rsearch-node-info]:not(.on-report):hover {
+    background-color: @nodeHoverBackgroundColor;
+    cursor: move;
+}
+[app-rsearch] [np-rsearch-node-form] .INDIVIDUAL_IDENTITY,
+[app-rsearch] [np-rsearch-node-form] [np-rsearch-node-info].on-report {
+    cursor: text;
+
+    /* TODO LESS mixin: .user-selectable; */
+    -webkit-touch-callout: default;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+[app-rsearch] [np-rsearch-node-form] [np-rsearch-node-info] .node-info {
+    padding-right: 5px;
+}
+[app-rsearch] [np-rsearch-node-form] [np-rsearch-node-info].on-report .node-info .node-info-entry.node-status {
+    display: block;
+}
+
+/* drag-and-drop-node-view */
+[drag-and-drop-node-view] [np-rsearch-node-simple],
+[drag-and-drop-node-view] [np-rsearch-node-info] {
+    display: block;
+
+    color: @nkbBlue !important;
+
+    border: 1px solid @defaultShadowBorderColor;
+    -webkit-border-radius: 3px;
+       -moz-border-radius: 3px;
+            border-radius: 3px;
+
+    background-color: @nodeHoverBackgroundColor;
+}
+[drag-and-drop-node-view] [np-rsearch-node-simple] {
+    padding: 5px 8px;
+}
+[drag-and-drop-node-view] [np-rsearch-node-simple]:not(:first-child),
+[drag-and-drop-node-view] [np-rsearch-node-info]:not(:first-child) {
+    margin-top: -1px;
+}
+[drag-and-drop-node-view] [np-rsearch-node-simple],
+[drag-and-drop-node-view] [np-rsearch-node-info] .node-header {
+    width: 300px;
+
+    /* TODO LESS mixin: .text-ellipsis; */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+}
+
+[drag-and-drop-node-view] .item-info,
+[drag-and-drop-node-view] .node-info,
+[drag-and-drop-node-view] [np-rsearch-node-simple] .icon,
+[drag-and-drop-node-view] [np-rsearch-node-info] .node-content,
+[drag-and-drop-node-view] [np-rsearch-node-info] .node-entry,
+[drag-and-drop-node-view] [np-rsearch-node-info] .align-right,
+[drag-and-drop-node-view] [np-rsearch-node-info] .inline,
+[drag-and-drop-node-view] [np-rsearch-node-plain] .target-relations-info,
+[drag-and-drop-node-view] [np-rsearch-node-plain] [np-rsearch-node-history-info],
+[drag-and-drop-node-view] [np-rsearch-node-plain] .extra-info,
+[drag-and-drop-node-view] [np-rsearch-node-plain].shadow-lift-lb-corner:before,
+[drag-and-drop-node-view] [np-rsearch-node-plain].shadow-lift-lb-corner:after {
+    display: none;
+}
+[drag-and-drop-node-view] [np-rsearch-node-plain] .hidden-on-drag {
+    display: none;
+}

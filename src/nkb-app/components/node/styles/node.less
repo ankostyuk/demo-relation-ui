@@ -1,0 +1,1048 @@
+@import './config.less';
+
+/* node-simple-view */
+[node-simple-view] {
+    font-weight: bold;
+    color: @nodeHeaderColor;
+}
+[node-simple-view] .liquidate {
+    color: @nodeCompanyLiquidatedHeaderColor;
+}
+[node-simple-view] .icon {
+    margin-right: 5px;
+}
+[node-simple-view] .USER_OBJECT > span {
+    display: inline-block;
+    max-width: 200px;
+    line-height: 16px;
+}
+[node-simple-view] .USER_OBJECT img {
+    height: 16px;
+    margin-right: 5px;
+    vertical-align: -2px;
+}
+
+/* node-graph-view */
+[node-graph-view] {
+    position: absolute;
+    z-index: @nodeBaseZIndex;
+
+    border: @nodeGraphBorder;
+
+    -webkit-border-radius: @nodeGraphBorderRadius;
+    -moz-border-radius: @nodeGraphBorderRadius;
+    border-radius: @nodeGraphBorderRadius;
+
+    font-size: @nodeGraphFontSize;
+    line-height: @nodeGraphLineHeight;
+
+    white-space: nowrap;
+    cursor: default;
+
+    background-color: @nodeGraphBackgroundColor;
+
+    /*
+     * Используется для определения координат вершины графа.
+     * Координаты вершины графа определяются как положение элемента ноды + смещение на значение background-position.
+     * Пока используется только первое значение в background-position, т.е. смещение будет одинаковым по x и по y.
+     */
+    background-position-x: @nodeGraphCentralPointOffset; /* ie8, т.к. background-position - в ie8 - undefined! */
+    background-position: @nodeGraphCentralPointOffset @nodeGraphCentralPointOffset;
+}
+
+[node-graph-view] .body {
+    position: relative;
+    z-index: 10;
+
+    min-width: @nodeGraphMinWidth;
+    min-height: @nodeGraphMinHeight;
+
+    padding: @nodeGraphPadding;
+
+    color: @nodeGraphColor;
+    background-color: @nodeGraphBackgroundColor;
+
+    -webkit-border-radius: @nodeGraphBorderRadius;
+    -moz-border-radius: @nodeGraphBorderRadius;
+    border-radius: @nodeGraphBorderRadius;
+}
+
+[node-graph-view].COMPANY,
+[node-graph-view].COMPANY .body {
+    background-color: @nodeCompanyBackgroundColor;
+}
+[node-graph-view].COMPANY .header {
+    white-space: pre;
+}
+
+[node-graph-view].INDIVIDUAL,
+[node-graph-view].INDIVIDUAL .body {
+    background-color: @nodeIndividualBackgroundColor;
+}
+[node-graph-view].INDIVIDUAL .header {
+    padding-top: 0;
+    white-space: pre;
+}
+
+[node-graph-view].ADDRESS,
+[node-graph-view].ADDRESS .body {
+    background-color: @nodeAddressBackgroundColor;
+}
+[node-graph-view].ADDRESS .header {
+    white-space: pre;
+}
+
+[node-graph-view].PHONE,
+[node-graph-view].PHONE .body {
+    background-color: @nodePhoneBackgroundColor;
+}
+
+[node-graph-view].PURCHASE,
+[node-graph-view].PURCHASE .body {
+    background-color: @nodePurchaseBackgroundColor;
+}
+[node-graph-view].PURCHASE .header {
+    white-space: pre;
+}
+
+[node-graph-view]:hover {
+    z-index: @nodeActiveZIndex;
+}
+
+/* link */
+[node-graph-view].LINK {
+    border-color: @commentBorderColor;
+
+    -webkit-border-radius: @commentBorderRadius;
+    -moz-border-radius: @commentBorderRadius;
+    border-radius: @commentBorderRadius;
+
+    background-color: @linkNodeBackgroundColor;
+
+    font-size: @commentFontSize;
+    line-height: @commentLineHeight;
+}
+[node-graph-view].LINK .node-icon {
+    color: @commentBorderColor;
+}
+[node-graph-view].LINK .body {
+    background-color: @linkNodeBackgroundColor;
+}
+[node-graph-view].LINK .body .content {
+    text-indent: 20px;
+    white-space: pre;
+}
+
+/* user-object */
+[node-graph-view].USER_OBJECT .image-wrapper {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 2px 0 0;
+    overflow: hidden;
+    border: 1px solid transparent;
+}
+[node-graph-view].USER_OBJECT .image-wrapper img {
+    width: 100%;
+}
+[node-graph-view].USER_OBJECT .body {
+    min-height: 12px;
+    padding: 4px;
+}
+[node-graph-view].USER_OBJECT .main {
+    display: inline-block;
+    vertical-align: top;
+    min-height: 0;
+    margin-left: 0;
+    padding: 0 2px;
+}
+[node-graph-view].USER_OBJECT .main .header {
+    white-space: pre;
+}
+
+[node-graph-view].USER_OBJECT .image-position-top .image-wrapper,
+[node-graph-view].USER_OBJECT .image-position-top .main {
+    display: block;
+    vertical-align: baseline;
+}
+[node-graph-view].USER_OBJECT .image-position-top .image-wrapper {
+    margin: 0 0 4px 0;
+}
+
+/* node state */
+[node-graph-view].state__hover {
+    border: @nodeGraphHoverBorder;
+
+    -webkit-box-shadow: @nodeGraphHoverBoxShadow;
+    -moz-box-shadow: @nodeGraphHoverBoxShadow;
+    box-shadow: @nodeGraphHoverBoxShadow;
+}
+[node-graph-view].state__selected {
+    border: @nodeGraphSelectedBorder;
+
+    -webkit-box-shadow: @nodeGraphSelectedBoxShadow;
+    -moz-box-shadow: @nodeGraphSelectedBoxShadow;
+    box-shadow: @nodeGraphSelectedBoxShadow;
+}
+[node-graph-view].state__selected-hover {
+    border: @nodeGraphSelectedHoverBorder;
+
+    -webkit-box-shadow: @nodeGraphSelectedHoverBoxShadow;
+    -moz-box-shadow: @nodeGraphSelectedHoverBoxShadow;
+    box-shadow: @nodeGraphSelectedHoverBoxShadow;
+}
+[node-graph-view].state__edge-selected {
+    border: @nodeGraphEdgeSelectedBorder;
+
+    -webkit-box-shadow: @nodeGraphEdgeSelectedBoxShadow;
+    -moz-box-shadow: @nodeGraphEdgeSelectedBoxShadow;
+    box-shadow: @nodeGraphEdgeSelectedBoxShadow;
+}
+/* ie8 state */
+.browser_explorer.browser-version_8 [node-graph-view]:before {
+    content: "";
+    position: absolute;
+    display: block;
+
+    left:   -2px;
+    top:    -2px;
+    right:  -2px;
+    bottom: -2px;
+}
+.browser_explorer.browser-version_8 [node-graph-view].state__hover:before {
+    content: " " !important; /* без переопределения ie8 нормально не прорисовывает, также и далее */
+    border: @nodeGraphHoverBorderNoShadow;
+}
+.browser_explorer.browser-version_8 [node-graph-view].state__selected:before {
+    content: " " !important;
+    left:   -4px !important;
+    top:    -4px !important;
+    right:  -4px !important;
+    bottom: -4px !important;
+    border: @nodeGraphSelectedBorderNoShadow;
+}
+.browser_explorer.browser-version_8 [node-graph-view].state__selected-hover:before {
+    content: " " !important;
+    left:   -4px !important;
+    top:    -4px !important;
+    right:  -4px !important;
+    bottom: -4px !important;
+    border: @nodeGraphSelectedHoverBorderNoShadow;
+}
+.browser_explorer.browser-version_8 [node-graph-view].state__edge-selected:before {
+    border: @nodeGraphEdgeSelectedBorderNoShadow;
+}
+
+[node-graph-view] .node-icon {
+    position: absolute;
+    display: block;
+    margin: 0;
+
+    left: 4px;
+    top: 4px;
+
+    font-size: @nodeGraphIconFontSize;
+
+    line-height: 1;
+    color: @nodeGraphIconColor;
+}
+[node-graph-view] .main {
+    min-height: @nodeGraphIconSpace;
+    margin-left: @nodeGraphIconSpace;
+}
+[node-graph-view] .main .header {
+    display: inline-block;
+    font-size: @nodeGraphHeaderFontSize;
+    font-weight: bold;
+    color: @nodeHeaderColor;
+
+    /* @Deprecated
+     * Используется для определения максимальной ширины заголовка.
+     */
+    background-position-x: @nodeGraphHeaderMaxWidth; /* ie8, т.к. background-position - в ie8 - undefined! */
+    background-position: @nodeGraphHeaderMaxWidth @nodeGraphHeaderMaxWidth;
+}
+
+[node-graph-view] .liquidate .node-icon,
+[node-graph-view] .liquidate .main .header,
+[node-graph-view] .liquidate .liquidate-state {
+    color: @nodeCompanyLiquidatedHeaderColor;
+}
+[node-graph-view] .liquidate-state,
+[node-graph-view] .liquidate-state-entry {
+    display: none;
+}
+[node-graph-view] .liquidate .liquidate-state {
+    display: inline;
+    font-weight: bold;
+}
+[node-graph-view] .liquidate .liquidate-state-entry {
+    display: block;
+    padding-bottom: 2px;
+}
+
+[node-graph-view] .body .entry .icon {
+    width: @nodeGraphFontSize;
+    font-size: @nodeGraphFontSize;
+    vertical-align: 0px;
+}
+
+/* small */
+[node-graph-view].small {
+    /* см. [node-graph-view] */
+    background-position-x: @nodeGraphSmallCentralPointOffset;
+    background-position: @nodeGraphSmallCentralPointOffset @nodeGraphSmallCentralPointOffset;
+}
+[node-graph-view].small .body {
+    min-width: @nodeGraphSmallMinWidth;
+    min-height: @nodeGraphSmallMinHeight;
+}
+[node-graph-view].small .node-icon  {
+    left: 5px;
+    top: 4px;
+
+    width: 10px;
+    height: 10px;
+
+    font-size: @nodeGraphSmallIconFontSize;
+}
+[node-graph-view].small .main {
+    min-height: @nodeGraphSmallIconSpace;
+    margin-left: @nodeGraphSmallIconSpace;
+}
+[node-graph-view].small .main .header {
+    font-weight: normal;
+}
+
+/* relation-graph-view */
+[relation-graph-view] {
+    position: absolute;
+    z-index: @relationBaseZIndex;
+
+    margin-left: @relationGraphOffset;
+    margin-top: @relationGraphOffset;
+
+    background-color: @relationGraphBackgroundColor;
+
+    border: @relationGraphBorder;
+
+    -webkit-border-radius: @relationGraphBorderRadius;
+    -moz-border-radius: @relationGraphBorderRadius;
+    border-radius: @relationGraphBorderRadius;
+
+    cursor: default;
+}
+
+[relation-graph-view].LINK {
+    display: none !important;
+}
+
+[relation-graph-view] .body {
+    position: relative;
+    z-index: 10;
+
+    min-width: 11px;
+    min-height: 11px;
+
+    padding: 1px;
+
+    background-color: @relationGraphBackgroundColor;
+
+    -webkit-border-radius: @relationGraphBorderRadius;
+    -moz-border-radius: @relationGraphBorderRadius;
+    border-radius: @relationGraphBorderRadius;
+
+    font-size: @relationGraphFontSize;
+    line-height: @relationGraphLineHeight;
+
+    white-space: nowrap;
+}
+
+[relation-graph-view] .body .icon {
+    width: 10px;
+    height: 10px;
+    line-height: 10px;
+    font-size: 11px;
+    vertical-align: -2px;
+}
+
+[relation-graph-view] .body [relation-label-graph-view] {
+    position: relative;
+    z-index: 10;
+    background-color: inherit;
+}
+
+[relation-graph-view]:hover {
+    z-index: @relationActiveZIndex;
+}
+
+[relation-graph-view] .header {
+    margin: 2px 4px;
+    font-weight: bold;
+    color: @relationHeaderColor;
+    white-space: pre;
+}
+[relation-graph-view] .header .icon {
+    margin-left: -3px;
+    margin-right: 3px;
+    color: #000;
+}
+[relation-graph-view] .entry {
+    display: none;
+    margin: 0 4px;
+}
+[relation-graph-view] .entry.inn {
+    margin: 2px 4px;
+    font-weight: bold;
+    color: @relationHeaderColor;
+}
+
+[relation-graph-view].expanded .entry,
+[relation-graph-view] .entry.always-show {
+    display: block;
+}
+
+[relation-graph-view] .entry:empty {
+    display: none !important;
+}
+
+[relation-graph-view].state__hover  {
+    border: @relationGraphHoverBorder;
+
+    -webkit-box-shadow: @relationGraphHoverBoxShadow;
+    -moz-box-shadow: @relationGraphHoverBoxShadow;
+    box-shadow: @relationGraphHoverBoxShadow;
+}
+[relation-graph-view].state__selected {
+    border: @relationGraphSelectedBorder;
+
+    -webkit-box-shadow: @relationGraphSelectedBoxShadow;
+    -moz-box-shadow: @relationGraphSelectedBoxShadow;
+    box-shadow: @relationGraphSelectedBoxShadow;
+}
+[relation-graph-view].state__selected-hover {
+    border: @relationGraphSelectedHoverBorder;
+
+    -webkit-box-shadow: @relationGraphSelectedHoverBoxShadow;
+    -moz-box-shadow: @relationGraphSelectedHoverBoxShadow;
+    box-shadow: @relationGraphSelectedHoverBoxShadow;
+}
+[relation-graph-view].state__vertex-selected {
+    border: @relationGraphVertexSelectedBorder;
+
+    -webkit-box-shadow: @relationGraphVertexSelectedBoxShadow;
+    -moz-box-shadow: @relationGraphVertexSelectedBoxShadow;
+    box-shadow: @relationGraphVertexSelectedBoxShadow;
+}
+
+[relation-graph-view].USER_RELATION .body .header {
+    white-space: pre;
+}
+
+/* object comment */
+.graph-object-layout .comment {
+    position: absolute;
+    left: -1px;
+    top: 100%;
+
+    min-width: 40px;
+
+    margin-top: 8px;
+
+    -webkit-border-radius: @commentBorderRadius;
+    -moz-border-radius: @commentBorderRadius;
+    border-radius: @commentBorderRadius;
+
+    background-color: @commentBackgroundColor;
+    border: 1px solid @commentBorderColor;
+}
+.graph-object-layout .comment:before {
+    content: "";
+    display: inline-block;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-bottom: 7px solid @commentBorderColor;
+    position: absolute;
+    top: -7px;
+    left: 5px;
+}
+.graph-object-layout .comment:after {
+    content: "";
+    display: inline-block;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid @commentBackgroundColor;
+    position: absolute;
+    top: -6px;
+    left: 6px;
+}
+.graph-object-layout .comment .comment-content {
+    padding: 2px 5px;
+    white-space: pre;
+    font-size: @commentFontSize;
+    line-height: @commentLineHeight;
+}
+
+/* drag-and-drop-node-view */
+[drag-and-drop-node-view] {
+    position: absolute;
+}
+
+/* node-popup */
+[node-popup-view] {
+    position: absolute;
+    display: none;
+
+    padding: 3px 0;
+    white-space: normal;
+
+    min-width: 100%;
+
+    background-color: @nodeGraphBackgroundColor;
+
+    -webkit-border-radius: @nodeGraphBorderRadius;
+    -moz-border-radius: @nodeGraphBorderRadius;
+    border-radius: @nodeGraphBorderRadius;
+
+    border: @nodeGraphBorder;
+    -webkit-border-radius: @nodeGraphBorderRadius;
+    -moz-border-radius: @nodeGraphBorderRadius;
+    border-radius: @nodeGraphBorderRadius;
+}
+
+[node-graph-view]:before {
+    content: "";
+    position: absolute;
+    z-index: 10;
+
+    display: none;
+
+    left: 0;
+    right: 0;
+    height: 4px;
+
+    background-color: @nodeGraphBackgroundColor;
+}
+[node-graph-view]:after {
+    content: "";
+    position: absolute;
+    z-index: 15;
+
+    display: none;
+
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background-color: @nodeGraphBackgroundColor;
+}
+
+[node-graph-view].node-popup:before,
+[node-graph-view].node-popup:after {
+    display: block;
+}
+[node-graph-view] [node-popup-view] {
+    border: @nodeGraphHoverBorder;
+    -webkit-box-shadow: @nodeGraphHoverBoxShadow;
+    -moz-box-shadow: @nodeGraphHoverBoxShadow;
+    box-shadow: @nodeGraphHoverBoxShadow;
+}
+[node-graph-view].state__selected-hover [node-popup-view] {
+    border: @nodeGraphSelectedHoverBorder;
+    -webkit-box-shadow: @nodeGraphSelectedHoverBoxShadow;
+    -moz-box-shadow: @nodeGraphSelectedHoverBoxShadow;
+    box-shadow: @nodeGraphSelectedHoverBoxShadow;
+}
+
+[node-graph-view].node-popup-width__justify [node-popup-view] {
+    left: -1px;
+    right: -1px;
+}
+
+[node-graph-view].node-popup-pos__bottom-right [node-popup-view] {
+    left: -1px;
+    top: 100%;
+    margin-top: -2px;
+}
+[node-graph-view].node-popup-pos__bottom-right:before {
+    bottom: -2px;
+}
+
+[node-graph-view].node-popup-pos__bottom-left [node-popup-view] {
+    right: -1px;
+    top: 100%;
+    margin-top: -2px;
+}
+[node-graph-view].node-popup-pos__bottom-left:before {
+    bottom: -2px;
+}
+
+[node-graph-view].node-popup-pos__bottom-left:after,
+[node-graph-view].node-popup-pos__bottom-right:after {
+    bottom: -1px;
+    border-top: @nodeGraphBorder;
+}
+
+
+[node-graph-view].node-popup-pos__top-left [node-popup-view] {
+    right: -1px;
+    bottom: 100%;
+    margin-bottom: -2px;
+}
+[node-graph-view].node-popup-pos__top-left:before {
+    top: -2px;
+}
+
+[node-graph-view].node-popup-pos__top-right [node-popup-view] {
+    left: -1px;
+    bottom: 100%;
+    margin-bottom: -2px;
+}
+[node-graph-view].node-popup-pos__top-right:before {
+    top: -2px;
+}
+
+[node-graph-view].node-popup-pos__top-left:after,
+[node-graph-view].node-popup-pos__top-right:after {
+    top: -1px;
+    border-bottom: @nodeGraphBorder;
+}
+
+[node-popup-view] .data {
+    margin-bottom: 2px;
+    padding: 3px 5px;
+    line-height: 1.25;
+}
+[node-popup-view] .data:empty {
+    display: none;
+}
+
+[node-popup-view] .nav.nav-list {
+    padding: 0;
+    white-space: nowrap;
+}
+[node-popup-view] .nav.nav-list > li > a {
+    margin: 0;
+    padding: 0 5px 0 22px;
+}
+[node-popup-view] .nav.nav-list > li > a > i {
+    position: absolute;
+    margin-top: 2px;
+    margin-left: -18px;
+    font-size: 13px;
+}
+[node-popup-view] .nav.nav-list > li > .wrapper {
+    padding: 0 5px;
+}
+[node-popup-view] .nav.nav-list > li > .wrapper:hover {
+    background-color: @navHoverBackgroundColor;
+}
+
+[node-popup-view] .relations .relation {
+    font-weight: bold;
+}
+[node-popup-view] .relations .shortcut {
+    visibility: hidden;
+    margin-left: 10px;
+}
+[node-popup-view] .relations .wrapper:hover .shortcut {
+    visibility: visible;
+}
+[node-popup-view] .relations .relation:empty,
+[node-popup-view] .relations .shortcut:empty {
+    display: none;
+}
+
+[node-popup-view] .relations li.also-in-body {
+    display: none;
+}
+
+/**/
+[node-graph-view] .body .relations {
+    margin: 2px 0 0 -1px;
+    padding: 0;
+}
+[node-graph-view] .body .relations .relation {
+    font-weight: bold;
+}
+[node-graph-view] .body .relations .shortcut {
+    visibility: hidden;
+    margin-left: 10px;
+}
+[node-graph-view] .body .relations .wrapper:hover .shortcut {
+    visibility: visible;
+}
+[node-graph-view] .body .relations .relation:empty,
+[node-graph-view] .body .relations .shortcut:empty {
+    display: none;
+}
+/**/
+
+[node-graph-view] .nav li {
+    line-height: 16px;
+}
+
+/* relation-popup */
+[relation-popup-view] {
+    position: absolute;
+    display: none;
+
+    padding: 0;
+    white-space: nowrap;
+
+    min-width: 100%;
+
+    background-color: @relationGraphBackgroundColor;
+
+    -webkit-border-radius: @relationGraphBorderRadius;
+    -moz-border-radius: @relationGraphBorderRadius;
+    border-radius: @relationGraphBorderRadius;
+
+    border: @relationGraphBorder;
+    -webkit-border-radius: @relationGraphBorderRadius;
+    -moz-border-radius: @relationGraphBorderRadius;
+    border-radius: @relationGraphBorderRadius;
+
+    font-size: @relationGraphFontSize;
+}
+
+[relation-graph-view]:before {
+    content: "";
+    position: absolute;
+    z-index: 10;
+
+    display: none;
+
+    left: 0;
+    right: 0;
+    height: 4px;
+
+    background-color: @relationGraphBackgroundColor;
+}
+[relation-graph-view]:after {
+    content: "";
+    position: absolute;
+    z-index: 15;
+
+    display: none;
+
+    left: 0;
+    right: 0;
+    height: 2px;
+
+    background-color: @relationGraphBackgroundColor;
+}
+
+[relation-graph-view].relation-popup:before,
+[relation-graph-view].relation-popup:after {
+    display: block;
+}
+[relation-graph-view] [relation-popup-view] {
+    border: @relationGraphHoverBorder;
+    -webkit-box-shadow: @relationGraphHoverBoxShadow;
+    -moz-box-shadow: @relationGraphHoverBoxShadow;
+    box-shadow: @relationGraphHoverBoxShadow;
+}
+[relation-graph-view].state__selected-hover [relation-popup-view] {
+    border: @relationGraphSelectedHoverBorder;
+    -webkit-box-shadow: @relationGraphSelectedHoverBoxShadow;
+    -moz-box-shadow: @relationGraphSelectedHoverBoxShadow;
+    box-shadow: @relationGraphSelectedHoverBoxShadow;
+}
+
+[relation-graph-view].relation-popup-width__justify [relation-popup-view] {
+    left: -1px;
+    right: -1px;
+}
+
+[relation-graph-view].relation-popup-pos__bottom-right [relation-popup-view] {
+    left: -1px;
+    top: 100%;
+    margin-top: -2px;
+}
+[relation-graph-view].relation-popup-pos__bottom-right:before {
+    bottom: 0;
+}
+
+[relation-graph-view].relation-popup-pos__bottom-left [relation-popup-view] {
+    right: -1px;
+    top: 100%;
+    margin-top: -2px;
+}
+[relation-graph-view].relation-popup-pos__bottom-left:before {
+    bottom: 0;
+}
+
+[relation-graph-view].relation-popup-pos__bottom-left:after,
+[relation-graph-view].relation-popup-pos__bottom-right:after {
+    bottom: -1px;
+    border-top: @relationGraphBorder;
+}
+
+
+[relation-graph-view].relation-popup-pos__top-left [relation-popup-view] {
+    right: -1px;
+    bottom: 100%;
+    margin-bottom: -2px;
+}
+[relation-graph-view].relation-popup-pos__top-left:before {
+    top: 0;
+}
+
+[relation-graph-view].relation-popup-pos__top-right [relation-popup-view] {
+    left: -1px;
+    bottom: 100%;
+    margin-bottom: -2px;
+}
+[relation-graph-view].relation-popup-pos__top-right:before {
+    top: 0;
+}
+
+[relation-graph-view].relation-popup-pos__top-left:after,
+[relation-graph-view].relation-popup-pos__top-right:after {
+    top: -1px;
+    border-bottom: transparent;/*@relationGraphBorder;*/
+}
+
+[relation-popup-view] .toolbar {
+    padding-top: 2px;
+}
+[relation-popup-view] .toolbar a {
+    margin: 0 0 0 4px;
+}
+[relation-popup-view] .toolbar .icon {
+    font-size: 13px;
+}
+
+
+/*
+ * zoom
+ *
+ */
+
+.relationGraphViewNoHeaderZoom {
+    /* Не [display: none;] -- для отображения заметки */
+    width: 0 !important;
+    height: 0 !important;
+
+    border: 0 none !important;
+    -webkit-box-shadow: none !important;
+    -moz-box-shadow: none !important;
+    box-shadow: none !important;
+
+    /* "Подгон" положения заметки */
+    margin-left: -12px !important;
+    margin-top: 0 !important;
+}
+
+[node-popup-view] li.toggle-hold-zoom {
+    display: none;
+}
+
+/* .zoom-level__normal  - default */
+/*.zoom-level__normal [relation-graph-view].no-header {
+    .relationGraphViewNoHeaderZoom
+}
+.zoom-level__normal [relation-label-graph-view] .entry {
+    display: none;
+}
+*/
+.zoom-level__base-info [node-graph-view] .body .relations {
+    display: none;
+}
+.zoom-level__base-info [node-popup-view] .relations li.also-in-body {
+    display: list-item;
+}
+/*.zoom-level__base-info [relation-graph-view].no-header {
+    .relationGraphViewNoHeaderZoom
+}
+.zoom-level__base-info [relation-label-graph-view] .entry {
+    display: none;
+}*/
+
+.zoom-level__min-info [node-graph-view] .entry,
+.zoom-level__min-info [node-graph-view] .body .relations {
+    display: none;
+}
+.zoom-level__min-info [node-popup-view] .relations li.also-in-body {
+    display: list-item;
+}
+/*.zoom-level__min-info [relation-graph-view].no-header {
+    .relationGraphViewNoHeaderZoom
+}
+.zoom-level__min-info [relation-label-graph-view] .entry {
+    display: none;
+}*/
+
+.zoom-level__icons [node-graph-view] .main,
+.zoom-level__icons [node-graph-view] .entry,
+.zoom-level__icons [node-graph-view] .content,
+.zoom-level__icons [node-graph-view] .body .relations {
+    display: none;
+}
+.zoom-level__icons [node-popup-view] .relations li.also-in-body {
+    display: list-item;
+}
+/*.zoom-level__icons [relation-graph-view].no-header {
+    .relationGraphViewNoHeaderZoom
+}
+.zoom-level__icons [relation-label-graph-view] .entry {
+    display: none;
+}*/
+.zoom-level__icons [node-graph-view]:hover .main,
+.zoom-level__icons [node-graph-view]:hover .entry,
+.zoom-level__icons [node-graph-view]:hover .content,
+.zoom-level__icons [node-graph-view].hold-zoom .main,
+.zoom-level__icons [node-graph-view].hold-zoom .entry,
+.zoom-level__icons [node-graph-view].hold-zoom .content {
+    display: block;
+}
+.zoom-level__icons [node-popup-view] li.toggle-hold-zoom {
+    display: list-item;
+}
+
+/*
+ * theme
+ *
+ */
+
+/* node */
+
+/*[node-graph-view].theme__default {
+}*/
+
+[node-graph-view].theme__yellow-0,
+[node-graph-view].theme__yellow-0 .body {
+    background-color: @yellow-0_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__green-0,
+[node-graph-view].theme__green-0 .body {
+    background-color: @green-0_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__blue-0,
+[node-graph-view].theme__blue-0 .body {
+    background-color: @blue-0_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__purple-0,
+[node-graph-view].theme__purple-0 .body {
+    background-color: @purple-0_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__red,
+[node-graph-view].theme__red .body {
+    background-color: @red_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__orange,
+[node-graph-view].theme__orange .body {
+    background-color: @orange_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__yellow,
+[node-graph-view].theme__yellow .body {
+    background-color: @yellow_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__green,
+[node-graph-view].theme__green .body {
+    background-color: @green_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__blue,
+[node-graph-view].theme__blue .body {
+    background-color: @blue_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__purple,
+[node-graph-view].theme__purple .body {
+    background-color: @purple_objectTheme_defaultColor !important;
+}
+
+[node-graph-view].theme__gray,
+[node-graph-view].theme__gray .body {
+    background-color: @gray_objectTheme_defaultColor !important;
+}
+
+/*
+[node-graph-view].theme__black,
+[node-graph-view].theme__black .body {
+    background-color: @black_objectTheme_defaultColor !important;
+}
+*/
+
+/* relation */
+
+[relation-graph-view].state__normal.opacity__muted {
+    background-color: @graphObjectInvisibleBackgroundColor !important;
+    border-color: @graphObjectInvisibleBorderColorColor !important;
+}
+[relation-graph-view].state__normal.opacity__muted .body {
+    opacity: 0.2;
+}
+
+/*[relation-graph-view].theme__default {
+}*/
+
+[relation-graph-view].theme__yellow-0,
+[relation-graph-view].theme__yellow-0 .body {
+    background-color: @yellow-0_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__green-0,
+[relation-graph-view].theme__green-0 .body {
+    background-color: @green-0_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__blue-0,
+[relation-graph-view].theme__blue-0 .body {
+    background-color: @blue-0_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__purple-0,
+[relation-graph-view].theme__purple-0 .body {
+    background-color: @purple-0_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__red,
+[relation-graph-view].theme__red .body {
+    background-color: @red_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__orange,
+[relation-graph-view].theme__orange .body {
+    background-color: @orange_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__yellow,
+[relation-graph-view].theme__yellow .body {
+    background-color: @yellow_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__green,
+[relation-graph-view].theme__green .body {
+    background-color: @green_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__blue,
+[relation-graph-view].theme__blue .body {
+    background-color: @blue_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__purple,
+[relation-graph-view].theme__purple .body {
+    background-color: @purple_objectTheme_defaultColor !important;
+}
+
+[relation-graph-view].theme__gray,
+[relation-graph-view].theme__gray .body {
+    background-color: @gray_objectTheme_defaultColor !important;
+}
+
+/*
+[relation-graph-view].theme__black,
+[relation-graph-view].theme__black .body {
+    background-color: @black_objectTheme_defaultColor !important;
+}
+*/

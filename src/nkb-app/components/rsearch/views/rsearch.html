@@ -1,0 +1,65 @@
+<script id="rsearch-view" type="text/template">
+    <div class="app-toolbar covered covered-on-top-bar rsearch-relations-bar pull-right" np-expand-content np-expand-content-dropdown np-expand-content-uniq-class="app-rsearch-toolbar-expand-content" np-expand-content-adjusted-bottom="content" np-expand-content-adjusted-bottom-offset="-8" np-expand-content-adjusted-bottom-target="window">
+        <ul class="nav nav-pills base-bar">
+            <li><a class="rsearch-relations-toggle relations" ng-click="rsearchRelations.toggleContent('RELATIONS')">${_tr("Связи")}</a></li>
+            <li><div class="rsearch-relations-toggle rsearch" np-rsearch-input np-rsearch-input-url-watch="'q'" np-rsearch-input-focusable="false"></div></li>
+        </ul>
+        <div class="app-rsearch-toolbar-expand-content content dropdown muted nodes-relations-empty" content-id="nodes-relations-empty">
+            ${_tr("Выберите компанию, физическое лицо, адрес или телефон для отображения связей.")}<br>
+            ${_.sprintf(_tr("Для поиска связей между объектами выберите несколько объектов, нажав и удерживая клавишу %s."), '<span class="label">⇧&nbsp;Shift</span>')}
+        </div>
+        <div class="app-rsearch-toolbar-expand-content content adjusted-bottom dropdown np-rsearch-content nodes-traces" content-id="nodes-traces" ng-class="{'current-trace-checked': nodesTraces.isCurrentTraceChecked()}">
+            <div class="row nodes-traces-content">
+                <div class="row tools">
+                    <div class="span3 nodes-traces-header">${_tr("Связи между объектами")}</div>
+                    <div class="span9 form-inline nodes-traces-depth">
+                        <label for="rsearch-relations-nodes-traces-depth">${_trc("до уровня:", "Связи между объектами")}</label>
+                        <select class="depth" id="rsearch-relations-nodes-traces-depth" ng-model="nodesTraces.filters.depth" ng-options="d for d in nodesTraces.filters.depths"></select>
+                        <select class="history" ng-model="nodesTraces.filters.history">
+                            <option value="" ng-selected="!nodesTraces.filters.history">${_trc("Любые цепочки", "Цепочки связанных объектов")}</option>
+                            <option value="false">${_trc("Актуальные связи", "Цепочки связанных объектов")}</option>
+                            <option value="true">${_trc("Исторические связи", "Цепочки связанных объектов")}</option>
+                        </select>
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="nodesTraces.relationGroups['contacts'].search"> ${_trc("учитывать адреса", "Связи между объектами")}
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox" ng-model="nodesTraces.relationGroups['purchases'].search"> ${_trc("учитывать закупки", "Связи между объектами")}
+                        </label>
+                    </div>
+                    <div class="align-right">
+                        <button class="btn flat" ng-click="nodesTraces.search()"><i class="icon i-graph-cluster"></i>&nbsp;&nbsp;${_tr("Найти")}</button>
+                    </div>
+                </div>
+                <div class="row align-right result-tools" ng-hide="nodesTraces.isNoResult() || nodesTraces.isEmptyResult()">
+                    <div class="trace-check">
+                        <label class="checkbox inside-list">
+                            <input type="checkbox" ng-model="nodesTraces.getCurrentTraceInfo().checked">
+                            ${_trc("выбрать цепочку", "Проверки связей")}
+                        </label>
+                    </div>
+                    <button class="btn flat" ng-disabled="!nodesTraces.isTracesChecked()" ng-click="nodesTraces.doExportResult()"><i class="icon i-document-2"></i> ${_trc("Экспортировать выбранные цепочки", "Проверки связей")}</button>
+                </div>
+                <div class="row result">
+                    <div class="span9 node-traces-view">
+                        <div class="filters-message" ng-show="nodesTraces.isNoResult()">${_tr("Будут найдены все возможные цепочки связей между объектами до указанного уровня")}</div>
+                        <div class="filters-message" ng-show="nodesTraces.isEmptyResult()">${_tr("Цепочек связей не найдено")}</div>
+                    </div>
+                    <div class="span3 nodes-pairs">
+                        <a class="action nodes-pair" ng-repeat="pair in nodesTraces.getPairs() track by $index" ng-class="{'disabled': pair.disabled, 'active': pair.active}" ng-click="nodesTraces.showPairTracesResult(pair)">
+                            <div class="text-ellipsis node1" np-rsearch-node-simple="pair.node1"></div>
+                            <div class="text-ellipsis node2" np-rsearch-node-simple="pair.node2"></div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="app-rsearch-toolbar-expand-content content dropdown muted rsearch-result-empty" content-id="rsearch-result-empty">
+            ${_tr("Укажите наименование компании, ОГРН, ИНН, ОКПО или руководителя")};<br>
+            ${_tr("фамилию, имя или отчество физического лица")}; ${_tr("адрес или номер телефона")}.
+        </div>
+        <div class="app-rsearch-toolbar-expand-content content adjusted-bottom dropdown np-rsearch-content rsearch-result" content-id="rsearch-panel">
+            <div np-rsearch-navigation np-rsearch-navigation-browser-history="false"></div>
+        </div>
+    </div>
+</script>

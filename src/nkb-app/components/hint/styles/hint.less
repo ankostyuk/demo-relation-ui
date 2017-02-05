@@ -1,0 +1,50 @@
+@import './config.less';
+
+[app-hint] {
+    display: none;
+    position: absolute;
+    z-index: 999999;
+    right: 0;
+    bottom: 0;
+
+    padding: @defaultIndent 40px 0 @defaultIndent;
+
+    border-top: 1px solid @borderColor;
+    border-left: @boxBorderRadius solid @borderColor;
+    -webkit-border-radius: @boxBorderRadius 0 0 0;
+    -moz-border-radius: @boxBorderRadius 0 0 0;
+    border-radius: @boxBorderRadius 0 0 0;
+
+    background-color: @backgroundColor;
+}
+
+[app-hint] .actions {
+    position: absolute;
+    right: @defaultIndent;
+    top: 8px;
+}
+
+[app-hint] .content {
+    display: none;
+    margin-bottom: @defaultIndent;
+}
+
+[app-hint].show__on {
+    display: block;
+}
+
+[app-hint].OBJECT_ACTIONS_START__on         .OBJECT_ACTIONS_START,
+[app-hint].TRACES_RESULT_ON_REPORT__on      .TRACES_RESULT_ON_REPORT,
+[app-hint].TRACES_RESULT__on                .TRACES_RESULT,
+[app-hint].RELATIONS_RESULT__on             .RELATIONS_RESULT,
+[app-hint].RELATIONS_START__on              .RELATIONS_START,
+[app-hint].SEARCH_RESULT__on                .SEARCH_RESULT,
+[app-hint].SEARCH_INPUT__on                 .SEARCH_INPUT,
+[app-hint].RSEARCH_NODE_LIST__on            .RSEARCH_NODE_LIST,
+[app-hint].RSEARCH_NODE_TRACES__on          .RSEARCH_NODE_TRACES,
+[app-hint].RSEARCH_NODE_FORM__on            .RSEARCH_NODE_FORM,
+[app-hint].ADD_NODES_FROM_URL__on           .ADD_NODES_FROM_URL,
+[app-hint].ADD_NODES_FROM_GRID__on          .ADD_NODES_FROM_GRID,
+[app-hint].START__on                        .START {
+    display: block;
+}

@@ -1,0 +1,222 @@
+/* НКБ стили */
+@import '../../../external_components/nullpointer-commons/nkb/styles/styles.less';
+
+/* Общие стили для всего приложения */
+
+@import './config.less';
+
+body,
+.non-user-selectable {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    /*-moz-user-select: -moz-none;*/
+    -ms-user-select: none;
+    user-select: none;
+}
+.user-selectable {
+    -webkit-touch-callout: default;
+    -webkit-user-select: text;
+    -khtml-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+div,
+input,
+textarea,
+button {
+    outline: 0 none !important;
+}
+
+a {
+    color: @linkHighlightColor;
+}
+a.underline {
+    border-bottom-color: @linkHighlightUnderlineColor;
+}
+a.disabled,
+a.disabled:hover,
+a.disabled:focus {
+    border-bottom-color: transparent;
+}
+
+label {
+    font-size: @contentFontSize;
+}
+
+textarea {
+    font-size: @contentFontSize;
+    resize: none;
+}
+
+.textarea {
+    height: auto;
+    min-height: 20px;
+
+    padding: 4px 6px;
+
+    color: @inputColor;
+    background-color: @inputBackgroundColor;
+    border: @inputBorder;
+
+    vertical-align: middle;
+
+    -webkit-border-radius: @defaultBorderRadius;
+    -moz-border-radius: @defaultBorderRadius;
+    border-radius: @defaultBorderRadius;
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border linear .2s, box-shadow linear .2s;
+    -moz-transition: border linear .2s, box-shadow linear .2s;
+    -o-transition: border linear .2s, box-shadow linear .2s;
+    transition: border linear .2s, box-shadow linear .2s;
+}
+.textarea:focus {
+    border-color: rgba(82, 168, 236, 0.8);
+    outline: 0;
+    outline: thin dotted \9;
+    /* IE6-9 */
+
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075), 0 0 8px rgba(82,168,236,.6);
+}
+
+.btn-sep {
+    display: inline-block;
+    width: @defaultIndent;
+    height: 10px;
+}
+
+.nav.nav-pills.vertical {
+    margin: 0;
+}
+.nav.nav-pills.vertical > li {
+    float: none;
+}
+.nav.nav-pills.vertical > .divider {
+    height: @defaultIndent;
+}
+
+select {
+    height: 26px;
+    line-height: 26px;
+    -webkit-border-radius:  @defaultBorderRadius;
+     -moz-border-radius:    @defaultBorderRadius;
+          border-radius:    @defaultBorderRadius;
+}
+
+.plain select {
+    display: inline-block;
+    margin-bottom: 2px;
+    padding: 0 2px;
+    height: 20px;
+    line-height: 20px;
+}
+.plain label {
+    display: inline-block;
+    margin-bottom: 0;
+}
+
+input:focus:invalid,
+textarea:focus:invalid,
+select:focus:invalid {
+    color: @invalidColor;
+    border-color: @invalidBorderColor;
+    box-shadow: @invalidBoxShadow;
+}
+input:focus:invalid:focus,
+textarea:focus:invalid:focus,
+select:focus:invalid:focus {
+    border-color: @invalidFocusBorderColor;
+    box-shadow: @invalidFocusBoxShadow;
+}
+
+.badge {
+  padding: 1px 4px;
+  font-size: @smallFontSize;
+  -webkit-border-radius: @defaultBorderRadius;
+     -moz-border-radius: @defaultBorderRadius;
+          border-radius: @defaultBorderRadius;
+}
+
+.highlight {
+    color: @contentHighlightColor;
+    font-weight: bold;
+}
+
+.list-item {
+    margin: 0 0 @defaultIndent 0;
+    padding: 0;
+}
+
+.right-padding-1 {
+    padding-right: @defaultIndent;
+}
+
+/* icons */
+.icon {
+    display: inline-block;
+    width: @iconFontSize;
+    height: @iconFontLineHeight;
+    line-height: @iconFontLineHeight;
+    font-size: @iconFontSize;
+    vertical-align: -1px;
+}
+.icon.light {
+    width: @iconLightFontSize;
+    font-size: @iconLightFontSize;
+    vertical-align: -1px;
+}
+.icon.small {
+    width: @iconSmallFontSize;
+    font-size: @iconSmallFontSize;
+    vertical-align: 0px;
+}
+.icon.mini {
+    width: @iconMiniFontSize;
+    font-size: @iconMiniFontSize;
+    vertical-align: 2px;
+}
+
+.btn-mini .icon.light {
+    vertical-align: -2px;
+}
+
+/* textarea */
+[np-textarea] {
+    overflow-y: hidden;
+}
+
+/* ContextPopup @Deprecated */
+[np-context-popup] {
+    z-index: 1000002;
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+
+/* attach-file-wrapper */
+.attach-file-wrapper {
+    position: relative;
+    overflow: hidden;
+}
+.attach-file-wrapper input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    border: solid transparent;
+    border-width: 0 0 100px 200px;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    -moz-transform: translate(-300px,0) scale(4);
+    direction: ltr;
+    cursor: pointer;
+}
